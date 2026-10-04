@@ -3,6 +3,8 @@
 The personal site of Ahmed Assem El Fakharany (AAF Studio): a full stack developer building web
 products and the AI automations behind them. Built with React 19, TypeScript, Tailwind CSS v4 and Vite.
 
+**Live site:** https://aaf-portfolio.vercel.app
+
 ## Getting started
 
 ```bash
@@ -46,4 +48,5 @@ src/
 - Dark and light themes, following the system on a first visit and remembering the choice
 - Scroll-reveal motion that turns off for visitors who prefer reduced motion
 - Filterable project archive, responsive down to phone width
-- Self-hosted fonts (Inter Tight, Instrument Serif, JetBrains Mono), with no third-party requests
+- Self-hosted fonts (Inter Tight, Montserrat for brand labels, JetBrains Mono), with no third-party requests
+- AAF Studio logo redrawn as SVG in `src/components/ui/Logo.tsx`, colored by the theme

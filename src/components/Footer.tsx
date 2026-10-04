@@ -11,9 +11,9 @@ export function Footer() {
     <footer className="border-t border-line py-12">
       <Container className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
         <div className="max-w-xs">
-          <Logo />
+          <Logo variant="full" />
           <p className="mt-4 text-sm leading-relaxed text-muted">
-            Web products and AI automation by {site.name}.
+            Web apps, websites and digital products by {site.name}.
           </p>
         </div>
 

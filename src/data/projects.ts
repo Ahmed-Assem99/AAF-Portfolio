@@ -139,67 +139,34 @@ export const featuredProjects: Project[] = [
   },
 ]
 
-export type StepIcon =
-  | 'link' | 'crawl' | 'filter' | 'book' | 'bot' | 'chat'
-  | 'upload' | 'split' | 'embed' | 'database' | 'search' | 'answer'
-  | 'folder' | 'file' | 'sparkles' | 'sheet' | 'mail' | 'send'
-
 export interface Workflow {
   title: string
   summary: string
-  outcome: string
-  steps: { label: string; icon: StepIcon }[]
+  steps: string[]
   tech: string[]
   repo: string
 }
 
 export const workflows: Workflow[] = [
   {
-    title: 'WhatsApp AI chatbot for any business',
-    summary:
-      'Give it a website URL. It crawls every page, rebuilds the content into a structured knowledge base and answers customers on WhatsApp using only that knowledge.',
-    outcome: 'Connect a website and the chatbot is ready, with no manual training or hardcoded FAQs.',
-    steps: [
-      { label: 'Website URL', icon: 'link' },
-      { label: 'Firecrawl crawl', icon: 'crawl' },
-      { label: 'Filter & clean', icon: 'filter' },
-      { label: 'Knowledge base', icon: 'book' },
-      { label: 'RAG agent + memory', icon: 'bot' },
-      { label: 'WhatsApp reply', icon: 'chat' },
-    ],
-    tech: ['n8n', 'Firecrawl', 'LangChain', 'OpenRouter', 'WhatsApp Cloud API'],
+    title: 'WhatsApp chatbot for any business',
+    summary: 'Crawls a business website, turns it into a knowledge base and answers customers on WhatsApp from that content only.',
+    steps: ['Website', 'Crawl', 'Knowledge base', 'AI agent', 'WhatsApp'],
+    tech: ['n8n', 'Firecrawl', 'OpenRouter'],
     repo: gh('AI-Whatsapp-Chatbot'),
   },
   {
-    title: 'RAG document assistant',
-    summary:
-      'Upload PDFs, manuals and reports, then ask questions in plain language and get answers grounded in the source documents, not hallucinations.',
-    outcome: 'Your team gets instant answers from internal knowledge instead of digging through files.',
-    steps: [
-      { label: 'Upload docs', icon: 'upload' },
-      { label: 'Chunk', icon: 'split' },
-      { label: 'Embed', icon: 'embed' },
-      { label: 'Vector store', icon: 'database' },
-      { label: 'Retrieve context', icon: 'search' },
-      { label: 'Grounded answer', icon: 'answer' },
-    ],
-    tech: ['n8n', 'Embeddings', 'Vector DB', 'LLM APIs', 'REST API'],
+    title: 'Document Q&A chatbot',
+    summary: 'Answers questions about uploaded PDFs and manuals, grounded in the source documents.',
+    steps: ['Upload', 'Embed', 'Vector store', 'Answer'],
+    tech: ['n8n', 'Embeddings', 'LLM APIs'],
     repo: gh('rag-chatbot-n8n'),
   },
   {
-    title: 'AI invoice processing',
-    summary:
-      'Drop an invoice PDF into Google Drive. AI extracts the client and amounts, logs them to Google Sheets and emails the billing team, with no manual data entry.',
-    outcome: 'Manual data entry replaced by a pipeline that runs the moment a file lands.',
-    steps: [
-      { label: 'Drive upload', icon: 'folder' },
-      { label: 'Extract PDF text', icon: 'file' },
-      { label: 'Gemini extraction', icon: 'sparkles' },
-      { label: 'Google Sheets', icon: 'sheet' },
-      { label: 'GPT-4o-mini email', icon: 'mail' },
-      { label: 'Gmail notify', icon: 'send' },
-    ],
-    tech: ['n8n', 'Gemini 2.0 Flash', 'GPT-4o-mini', 'Sheets API', 'Gmail API'],
+    title: 'Invoice processing',
+    summary: 'Reads invoice PDFs from Google Drive, logs the details to Google Sheets and emails the billing team.',
+    steps: ['Drive', 'Extract', 'Sheets', 'Email'],
+    tech: ['n8n', 'Gemini', 'Google Workspace'],
     repo: gh('AI-Invoice-n8n'),
   },
 ]

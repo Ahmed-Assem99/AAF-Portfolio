@@ -16,7 +16,7 @@ export function FeaturedWork() {
           eyebrow="Selected work"
           title={
             <>
-              Products I’ve designed, built <em className="font-serif font-normal">and shipped.</em>
+              Products I’ve designed, built <span className="text-accent-text">and shipped.</span>
             </>
           }
           description="A few projects that show how I work: clean interfaces, real data from real APIs, and the details that make an app feel finished."

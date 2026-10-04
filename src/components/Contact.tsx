@@ -36,15 +36,14 @@ export function Contact() {
             />
 
             <div className="relative">
-              <p className="font-mono text-xs tracking-wider text-muted uppercase">
+              <p className="font-brand text-[11px] tracking-[0.28em] text-muted uppercase">
                 <span className="text-accent-text">06</span> · Contact
               </p>
               <h2 className="mx-auto mt-6 max-w-3xl text-4xl font-medium tracking-tight text-balance sm:text-6xl">
-                Have a project in mind? <em className="font-serif font-normal text-accent-text">Let’s build it.</em>
+                Have a project in mind? <span className="text-accent-text">Let’s build it.</span>
               </h2>
               <p className="mx-auto mt-6 max-w-xl text-lg text-muted">
-                Open to freelance work, consulting and collaborations: web apps, landing pages, AI chatbots and
-                automation.
+                Open to freelance work, consulting and collaborations on web apps, websites and landing pages.
               </p>
 
               <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

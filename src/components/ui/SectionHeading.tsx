@@ -11,7 +11,7 @@ interface SectionHeadingProps {
 export function SectionHeading({ index, eyebrow, title, description }: SectionHeadingProps) {
   return (
     <Reveal className="max-w-3xl">
-      <p className="flex items-center gap-3 font-mono text-xs tracking-wider text-muted uppercase">
+      <p className="flex items-center gap-3 font-brand text-[11px] tracking-[0.28em] text-muted uppercase">
         <span className="text-accent-text">{index}</span>
         <span className="h-px w-8 bg-line-strong" aria-hidden="true" />
         {eyebrow}

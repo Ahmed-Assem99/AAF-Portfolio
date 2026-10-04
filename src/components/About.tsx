@@ -11,9 +11,9 @@ export function About() {
 
         <div className="mt-14 grid gap-14 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
-            <p className="font-serif text-3xl leading-tight text-balance sm:text-4xl">
+            <p className="text-3xl leading-tight font-medium tracking-tight text-balance sm:text-4xl">
               I like building things that look good and{' '}
-              <span className="text-accent-text italic">quietly save people hours.</span>
+              <span className="text-accent-text">quietly save people hours.</span>
             </p>
             <p className="mt-6 font-mono text-sm text-muted">
               {site.name} <span className="text-subtle">· AAF</span>
@@ -27,9 +27,9 @@ export function About() {
               <span className="text-fg">TypeScript, Tailwind and modern tooling</span>.
             </p>
             <p>
-              Alongside the front end, I work on the backend (Node, Express, MongoDB, Python and FastAPI) and on what I
-              enjoy most: <span className="text-fg">LLM-powered automation</span>. That means RAG chatbots, document
-              pipelines and n8n workflows with sensible token budgets, fallbacks and logging.
+              Alongside the front end, I build the backend that powers it: <span className="text-fg">Node, Express,
+              MongoDB, Python and FastAPI</span>. When a product calls for it, I also add AI features such as chatbots
+              and n8n automations.
             </p>
             <p>
               I design for both English and Arabic users, including full right-to-left layouts, and I care about the
@@ -42,7 +42,7 @@ export function About() {
           <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {skills.map((group) => (
               <div key={group.group} className="bg-bg p-6">
-                <h3 className="font-mono text-xs tracking-wider text-accent-text uppercase">{group.group}</h3>
+                <h3 className="font-brand text-[11px] tracking-[0.28em] text-accent-text uppercase">{group.group}</h3>
                 <ul className="mt-4 space-y-2 text-[15px]">
                   {group.items.map((item) => (
                     <li key={item}>{item}</li>
