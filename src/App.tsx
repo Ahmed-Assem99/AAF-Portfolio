@@ -1,8 +1,36 @@
+import { About } from './components/About'
+import { Automation } from './components/Automation'
+import { Contact } from './components/Contact'
+import { FeaturedWork } from './components/FeaturedWork'
+import { Footer } from './components/Footer'
+import { Hero } from './components/Hero'
+import { MoreProjects } from './components/MoreProjects'
+import { Navbar } from './components/Navbar'
+import { Services } from './components/Services'
+import { StackMarquee } from './components/StackMarquee'
+
 function App() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-950 text-white">
-      <h1 className="text-4xl font-bold">AAF Portfolio</h1>
-    </main>
+    <>
+      <a
+        href="#work"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-fg"
+      >
+        Skip to content
+      </a>
+      <Navbar />
+      <main>
+        <Hero />
+        <StackMarquee />
+        <FeaturedWork />
+        <Automation />
+        <MoreProjects />
+        <Services />
+        <About />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   )
 }
 
