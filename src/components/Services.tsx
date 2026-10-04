@@ -1,4 +1,4 @@
-import { AppWindow, Bot, LayoutTemplate, Workflow, type LucideIcon } from 'lucide-react'
+import { AppWindow, Bot, LayoutTemplate, type LucideIcon } from 'lucide-react'
 import { process, services } from '../data/site'
 import { Container } from './ui/Container'
 import { Reveal } from './ui/Reveal'
@@ -8,7 +8,6 @@ const icons: Record<(typeof services)[number]['icon'], LucideIcon> = {
   app: AppWindow,
   layout: LayoutTemplate,
   bot: Bot,
-  workflow: Workflow,
 }
 
 export function Services() {
@@ -20,17 +19,17 @@ export function Services() {
           eyebrow="Services · AAF Studio"
           title={
             <>
-              One developer, <em className="font-serif font-normal">end to end.</em>
+              One developer, <span className="text-accent-text">end to end.</span>
             </>
           }
-          description="AAF Studio is how I work with clients. You get one person who owns the interface, the API and the automations around it, so nothing gets lost between handoffs."
+          description="AAF Studio is how I work with clients. You get one person who owns the design, the front end and the API behind it, so nothing gets lost between handoffs."
         />
 
-        <div className="mt-16 grid gap-5 md:grid-cols-2">
+        <div className="mt-16 grid gap-5 md:grid-cols-3">
           {services.map((service, i) => {
             const Icon = icons[service.icon]
             return (
-              <Reveal key={service.title} delay={(i % 2) * 80} className="h-full">
+              <Reveal key={service.title} delay={i * 80} className="h-full">
                 <article className="group h-full rounded-2xl border border-line bg-bg p-7 transition-colors hover:border-line-strong sm:p-8">
                   <div className="flex items-start justify-between">
                     <span className="grid size-12 place-items-center rounded-xl bg-accent text-accent-fg transition-transform duration-300 group-hover:-rotate-6">
@@ -55,11 +54,11 @@ export function Services() {
         </div>
 
         <Reveal className="mt-20">
-          <h3 className="font-mono text-xs tracking-wider text-muted uppercase">How a project runs</h3>
+          <h3 className="font-brand text-[11px] tracking-[0.28em] text-muted uppercase">How a project runs</h3>
           <ol className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {process.map((item) => (
               <li key={item.step} className="bg-bg p-6">
-                <span className="font-serif text-4xl text-accent-text italic">{item.step}</span>
+                <span className="font-brand text-3xl font-semibold text-accent-text">{item.step}</span>
                 <p className="mt-4 font-medium">{item.title}</p>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted">{item.body}</p>
               </li>

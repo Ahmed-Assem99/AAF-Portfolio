@@ -1,43 +1,43 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter-tight";
-@import "@fontsource/instrument-serif/400.css";
-@import "@fontsource/instrument-serif/400-italic.css";
+@import "@fontsource-variable/montserrat/wght.css";
 @import "@fontsource-variable/jetbrains-mono";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* ---------- Theme tokens ---------- */
+/* ---------- Theme tokens ----------
+   Taken from the AAF Studio logo: ink #0b0f17, signal blue #1f6bff, cool grey ground. */
 :root {
-  --bg: #f6f5f1;
+  --bg: #f3f4f6;
   --surface: #ffffff;
-  --surface-2: #eeede8;
-  --line: rgb(20 20 22 / 0.09);
-  --line-strong: rgb(20 20 22 / 0.16);
-  --fg: #131315;
-  --muted: #55555d;
-  --subtle: #8b8b93;
-  --accent: #f05a1f;
-  --accent-fg: #160a04;
-  --accent-text: #c2410c;
-  --glow: rgb(240 90 31 / 0.16);
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 12px 32px -12px rgb(0 0 0 / 0.14);
+  --surface-2: #e8eaee;
+  --line: rgb(11 15 23 / 0.09);
+  --line-strong: rgb(11 15 23 / 0.17);
+  --fg: #0b0f17;
+  --muted: #4a5262;
+  --subtle: #7c8595;
+  --accent: #1f6bff;
+  --accent-fg: #ffffff;
+  --accent-text: #1557e6;
+  --glow: rgb(31 107 255 / 0.14);
+  --shadow: 0 1px 2px rgb(11 15 23 / 0.04), 0 12px 32px -12px rgb(11 15 23 / 0.16);
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --bg: #0b0b0c;
-  --surface: #131315;
-  --surface-2: #1b1b1e;
+  --bg: #0b0f17;
+  --surface: #111725;
+  --surface-2: #192133;
   --line: rgb(255 255 255 / 0.08);
   --line-strong: rgb(255 255 255 / 0.15);
-  --fg: #f2f1ed;
-  --muted: #a3a3ab;
-  --subtle: #6f6f78;
-  --accent: #ff6b35;
-  --accent-fg: #160a04;
-  --accent-text: #ff8a5c;
-  --glow: rgb(255 107 53 / 0.18);
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -16px rgb(0 0 0 / 0.7);
+  --fg: #f3f4f6;
+  --muted: #9ba4b4;
+  --subtle: #6f788a;
+  --accent: #1f6bff;
+  --accent-fg: #ffffff;
+  --accent-text: #6b9dff;
+  --glow: rgb(31 107 255 / 0.22);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -16px rgb(0 0 0 / 0.75);
   color-scheme: dark;
 }
 
@@ -55,7 +55,7 @@
   --color-accent-text: var(--accent-text);
 
   --font-sans: "Inter Tight Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-brand: "Montserrat Variable", "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
 
   --shadow-card: var(--shadow);

@@ -48,4 +48,5 @@ src/
 - Dark and light themes, following the system on a first visit and remembering the choice
 - Scroll-reveal motion that turns off for visitors who prefer reduced motion
 - Filterable project archive, responsive down to phone width
-- Self-hosted fonts (Inter Tight, Instrument Serif, JetBrains Mono), with no third-party requests
+- Self-hosted fonts (Inter Tight, Montserrat for brand labels, JetBrains Mono), with no third-party requests
+- AAF Studio logo redrawn as SVG in `src/components/ui/Logo.tsx`, colored by the theme

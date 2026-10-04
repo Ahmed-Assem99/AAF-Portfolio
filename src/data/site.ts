@@ -14,7 +14,6 @@ export const site = {
 
 export const navLinks = [
   { id: 'work', label: 'Work' },
-  { id: 'automation', label: 'Automation' },
   { id: 'projects', label: 'Projects' },
   { id: 'services', label: 'Services' },
   { id: 'about', label: 'About' },
@@ -23,7 +22,7 @@ export const navLinks = [
 export const heroStats = [
   { value: '20+', label: 'projects on GitHub' },
   { value: '9', label: 'live deployments' },
-  { value: '3', label: 'AI automation workflows' },
+  { value: 'React · TS', label: 'core stack' },
   { value: 'EN · AR', label: 'LTR & RTL interfaces' },
 ]
 
@@ -36,13 +35,11 @@ export const marquee = [
   'MongoDB',
   'Python',
   'FastAPI',
+  'React Router',
+  'Bootstrap',
+  'REST APIs',
   'n8n',
   'OpenAI',
-  'Claude',
-  'Gemini',
-  'LangChain',
-  'RAG',
-  'WhatsApp Cloud API',
   'Vite',
   'Vercel',
   'Docker',
@@ -63,15 +60,9 @@ export const services = [
   },
   {
     icon: 'bot',
-    title: 'AI chatbots (RAG)',
-    body: 'Assistants grounded in your own website or documents, on WhatsApp, web chat or Slack. When they don’t know an answer, they say so instead of inventing one.',
-    points: ['Retrieval-augmented', 'Conversation memory', 'Cost-aware LLM usage'],
-  },
-  {
-    icon: 'workflow',
-    title: 'Business automation',
-    body: 'n8n pipelines that read invoices, update spreadsheets, draft emails and connect your tools, so your team stops copying and pasting.',
-    points: ['n8n workflows', 'Webhooks & APIs', 'Google Workspace'],
+    title: 'AI features & automation',
+    body: 'When a product needs it, I add chatbots grounded in your own content and n8n workflows that connect your everyday tools.',
+    points: ['Chatbots', 'n8n workflows', 'API integrations'],
   },
 ] as const
 
@@ -79,7 +70,7 @@ export const process = [
   { step: '01', title: 'Discover', body: 'We pin down the problem, the users and what “done” looks like.' },
   { step: '02', title: 'Design', body: 'A clear direction and layout before any heavy code is written.' },
   { step: '03', title: 'Build', body: 'Typed, componentized code with previews you can click through.' },
-  { step: '04', title: 'Launch & automate', body: 'Deploy, then automate the repetitive work around the product.' },
+  { step: '04', title: 'Launch', body: 'Deploy to production, then keep improving it with real feedback.' },
 ]
 
 export const skills = [

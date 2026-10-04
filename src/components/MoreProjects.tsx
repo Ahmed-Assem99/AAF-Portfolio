@@ -16,11 +16,11 @@ export function MoreProjects() {
     <section id="projects" className="py-28 sm:py-36">
       <Container>
         <SectionHeading
-          index="03"
+          index="02"
           eyebrow="More projects"
           title={
             <>
-              The rest of the <em className="font-serif font-normal">archive.</em>
+              The rest of the <span className="text-accent-text">archive.</span>
             </>
           }
           description={`${total} projects and counting, from my first hand-coded landing pages to typed React apps and APIs.`}

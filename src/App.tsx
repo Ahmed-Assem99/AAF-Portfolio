@@ -23,8 +23,8 @@ function App() {
         <Hero />
         <StackMarquee />
         <FeaturedWork />
-        <Automation />
         <MoreProjects />
+        <Automation />
         <Services />
         <About />
         <Contact />

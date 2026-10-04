@@ -31,17 +31,15 @@ export function Hero() {
 
           <Reveal delay={80}>
             <h1 className="mt-7 text-[2.75rem] leading-[1.02] font-medium tracking-[-0.035em] text-balance sm:text-6xl lg:text-[4.6rem]">
-              I build web products & the{' '}
-              <em className="font-serif font-normal tracking-normal text-accent-text">AI automations</em> that run
-              behind them.
+              I design and build <span className="text-accent-text">digital products</span> for the web.
             </h1>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted">
-              I’m {site.shortName}, a full stack developer and the person behind{' '}
-              <span className="text-fg">{site.brand}</span>. I ship React & TypeScript interfaces, Node and Python
-              APIs, and n8n + LLM pipelines that take the busywork off your team.
+              I’m {site.shortName}, a full stack developer and the founder of{' '}
+              <span className="text-fg">{site.brand}</span>. I build fast, responsive web apps and websites with React
+              and TypeScript, backed by Node and Python APIs.
             </p>
           </Reveal>
 
@@ -108,15 +106,15 @@ function HeroCollage() {
       </BrowserFrame>
 
       <div className="animate-float absolute -bottom-6 -left-2 rounded-xl border border-line bg-surface/95 p-3.5 font-mono text-[11px] leading-relaxed shadow-card backdrop-blur sm:-left-6">
-        <p className="text-subtle">$ n8n workflow:run whatsapp-bot</p>
+        <p className="text-subtle">$ npm run build</p>
         <p>
-          <span className="text-emerald-500">✓</span> crawled <span className="text-accent-text">42</span> pages
+          <span className="text-emerald-500">✓</span> type-checked with <span className="text-accent-text">TypeScript</span>
         </p>
         <p>
-          <span className="text-emerald-500">✓</span> knowledge base ready
+          <span className="text-emerald-500">✓</span> production build ready
         </p>
         <p>
-          <span className="text-emerald-500">✓</span> replying on WhatsApp
+          <span className="text-emerald-500">✓</span> deployed to Vercel
         </p>
       </div>
     </div>
