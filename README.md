@@ -3,6 +3,8 @@
 The personal site of Ahmed Assem El Fakharany (AAF Studio): a full stack developer building web
 products and the AI automations behind them. Built with React 19, TypeScript, Tailwind CSS v4 and Vite.
 
+**Live site:** https://aaf-portfolio.vercel.app
+
 ## Getting started
 
 ```bash
