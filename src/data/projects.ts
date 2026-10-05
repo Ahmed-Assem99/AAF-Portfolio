@@ -232,6 +232,7 @@ export const moreProjects: Project[] = [
     tech: ['HTML5', 'CSS3', 'RTL'],
     category: 'html-css',
     image: muddabir,
+    live: 'https://project5-muddabir.vercel.app',
     repo: gh('Project5-Muddabir'),
     rtl: true,
   },
@@ -263,6 +264,7 @@ export const moreProjects: Project[] = [
     tech: ['HTML5', 'CSS3'],
     category: 'html-css',
     image: dji,
+    live: 'https://project3-dji-mavic-4-pro.vercel.app',
     repo: gh('Project3-DJI-Mavic-4-Pro'),
   },
   {
