@@ -56,39 +56,8 @@ export const featuredProjects: Project[] = [
     tech: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'Vite'],
     category: 'react',
     image: lumen,
+    live: 'https://project-ai-saa-s-landing-page-templ.vercel.app',
     repo: gh('Project-AI-SaaS-Landing-Page-Template'),
-  },
-  {
-    title: 'COSMOS',
-    tagline: 'Real-time space dashboard',
-    description:
-      'NASA’s Astronomy Picture of the Day, upcoming rocket launches and live planetary data in one dashboard, with an interactive explorer for all eight planets.',
-    highlights: [
-      'Three public APIs (NASA APOD, The Space Devs, Solar System OpenData)',
-      'Browse any day’s APOD with a date picker and graceful error states',
-      'Planet explorer with physical data, discovery info and quick facts',
-    ],
-    tech: ['TypeScript', 'Tailwind CSS', 'REST APIs'],
-    category: 'javascript',
-    image: cosmos,
-    live: 'https://project11-cosmos-space-dashboard.vercel.app/',
-    repo: gh('Project11-COSMOS-SpaceDashboard'),
-  },
-  {
-    title: 'NutriPlan',
-    tagline: 'Food, nutrition & fitness planner',
-    description:
-      'Search recipes by name, category or cuisine, scan products by barcode with Nutri-Score grading, analyze a recipe’s nutrition and track everything in a daily food log.',
-    highlights: [
-      'Barcode product lookup with Nutri-Score and NOVA grades',
-      'Per-recipe nutrition analysis with interactive Plotly charts',
-      'Daily food log persisted in localStorage',
-    ],
-    tech: ['JavaScript', 'Tailwind CSS', 'REST APIs', 'Plotly'],
-    category: 'javascript',
-    image: nutriplan,
-    live: 'https://project12-nutri-plan.vercel.app/',
-    repo: gh('Project12-NutriPlan'),
   },
   {
     title: 'Circle',
@@ -107,20 +76,36 @@ export const featuredProjects: Project[] = [
     repo: gh('Project16-Circle'),
   },
   {
-    title: 'Kanban',
-    tagline: 'Drag-and-drop task board',
+    title: 'NutriPlan',
+    tagline: 'Food, nutrition & fitness planner',
     description:
-      'A three-column board for To Do, In Progress and Completed, with priorities, due dates and descriptions. Tasks survive a refresh.',
+      'Search recipes by name, category or cuisine, scan products by barcode with Nutri-Score grading, analyze a recipe’s nutrition and track everything in a daily food log.',
     highlights: [
-      'Drag and drop between columns with mouse and touch',
-      'Inline validation: required title, no due dates in the past',
-      'Written in TypeScript and persisted in localStorage',
+      'Barcode product lookup with Nutri-Score and NOVA grades',
+      'Per-recipe nutrition analysis with interactive Plotly charts',
+      'Daily food log persisted in localStorage',
     ],
-    tech: ['TypeScript', 'Tailwind CSS v4', 'HTML5'],
+    tech: ['JavaScript', 'Tailwind CSS', 'REST APIs', 'Plotly'],
     category: 'javascript',
-    image: kanban,
-    live: 'https://project13-kanban-task-manager.vercel.app/',
-    repo: gh('Project13-KanbanTaskManager'),
+    image: nutriplan,
+    live: 'https://project12-nutri-plan.vercel.app/',
+    repo: gh('Project12-NutriPlan'),
+  },
+  {
+    title: 'COSMOS',
+    tagline: 'Real-time space dashboard',
+    description:
+      'NASA’s Astronomy Picture of the Day, upcoming rocket launches and live planetary data in one dashboard, with an interactive explorer for all eight planets.',
+    highlights: [
+      'Three public APIs (NASA APOD, The Space Devs, Solar System OpenData)',
+      'Browse any day’s APOD with a date picker and graceful error states',
+      'Planet explorer with physical data, discovery info and quick facts',
+    ],
+    tech: ['TypeScript', 'Tailwind CSS', 'REST APIs'],
+    category: 'javascript',
+    image: cosmos,
+    live: 'https://project11-cosmos-space-dashboard.vercel.app/',
+    repo: gh('Project11-COSMOS-SpaceDashboard'),
   },
   {
     title: 'Adasa · عدسة',
@@ -135,8 +120,25 @@ export const featuredProjects: Project[] = [
     tech: ['React', 'React Router', 'Tailwind CSS v4', 'Lucide'],
     category: 'react',
     image: adasa,
+    live: 'https://project15-adasa.vercel.app',
     repo: gh('Project15-Adasa'),
     rtl: true,
+  },
+  {
+    title: 'Kanban',
+    tagline: 'Drag-and-drop task board',
+    description:
+      'A three-column board for To Do, In Progress and Completed, with priorities, due dates and descriptions. Tasks survive a refresh.',
+    highlights: [
+      'Drag and drop between columns with mouse and touch',
+      'Inline validation: required title, no due dates in the past',
+      'Written in TypeScript and persisted in localStorage',
+    ],
+    tech: ['TypeScript', 'Tailwind CSS v4', 'HTML5'],
+    category: 'javascript',
+    image: kanban,
+    live: 'https://project13-kanban-task-manager.vercel.app/',
+    repo: gh('Project13-KanbanTaskManager'),
   },
 ]
 
@@ -230,6 +232,7 @@ export const moreProjects: Project[] = [
     tech: ['HTML5', 'CSS3', 'RTL'],
     category: 'html-css',
     image: muddabir,
+    live: 'https://project5-muddabir.vercel.app',
     repo: gh('Project5-Muddabir'),
     rtl: true,
   },
@@ -251,6 +254,7 @@ export const moreProjects: Project[] = [
     tech: ['HTML5', 'CSS3'],
     category: 'html-css',
     image: uxreview,
+    live: 'https://project4-the-ux-review.vercel.app',
     repo: gh('Project4-The-UX-Review'),
   },
   {
@@ -260,6 +264,7 @@ export const moreProjects: Project[] = [
     tech: ['HTML5', 'CSS3'],
     category: 'html-css',
     image: dji,
+    live: 'https://project3-dji-mavic-4-pro.vercel.app',
     repo: gh('Project3-DJI-Mavic-4-Pro'),
   },
   {
@@ -290,3 +295,31 @@ export const moreProjects: Project[] = [
     repo: gh('CRUD'),
   },
 ]
+
+// Every project for the archive grid, newest first. Featured projects are included too.
+const archiveOrder = [
+  'Lumen',
+  'Circle',
+  'Adasa · عدسة',
+  'QuizMaster',
+  'Kanban',
+  'NutriPlan',
+  'COSMOS',
+  'Arabic portfolio',
+  'ContactHub',
+  'What’s for Dinner',
+  'Clarity',
+  'GameArena',
+  'Muddabir · مدبّر',
+  'The UX Review',
+  'DJI Mavic 4 Pro',
+  'FitCore Gym',
+  'Product CRUD',
+  'Todo API',
+]
+const byTitle = new Map([...featuredProjects, ...moreProjects].map((p) => [p.title, p]))
+export const archiveProjects: Project[] = archiveOrder.flatMap((t) => byTitle.get(t) ?? [])
+export const featuredTitles = new Set(featuredProjects.map((p) => p.title))
+
+/** Number of projects with a live demo, shown in the hero stats. */
+export const liveDemoCount = [...featuredProjects, ...moreProjects].filter((p) => p.live).length

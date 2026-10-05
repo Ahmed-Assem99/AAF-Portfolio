@@ -1,5 +1,6 @@
 import { FolderGit2, Globe, Languages } from 'lucide-react'
 import type { ReactNode } from 'react'
+import { liveDemoCount } from '../data/projects'
 import { heroStats, site } from '../data/site'
 import { CountUp } from './ui/CountUp'
 import { AafMark } from './ui/Logo'
@@ -20,6 +21,11 @@ const statIcons: Record<(typeof heroStats)[number]['icon'], ReactNode> = {
 
 // The hero stats, laid out like the Windows 95 "System Properties" dialog.
 export function SystemProperties() {
+  const stats = heroStats.map((stat) => ({
+    ...stat,
+    value: stat.icon === 'live' ? String(liveDemoCount) : stat.value,
+  }))
+
   return (
     <Window title="System Properties" bootLabel="sysprop" bodyClassName="p-3 sm:p-4">
       <div className="flex font-pixel text-sm" role="presentation">
@@ -54,7 +60,7 @@ export function SystemProperties() {
         <fieldset className="relative mt-8 border-2 border-[var(--bevel-mid)] px-3 pt-5 pb-3 shadow-[1px_1px_0_var(--bevel-hi),inset_1px_1px_0_var(--bevel-hi)] sm:px-4">
           <legend className="bg-surface px-2 font-pixel text-sm text-muted">Computer</legend>
           <dl className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            {heroStats.map((stat) => (
+            {stats.map((stat) => (
               <div key={stat.label} className="bevel-in flex min-w-0 flex-col bg-surface-2 p-3.5 sm:p-4">
                 <span
                   className="bevel mb-4 grid h-10 w-fit min-w-10 place-items-center bg-surface px-2 text-accent-text"

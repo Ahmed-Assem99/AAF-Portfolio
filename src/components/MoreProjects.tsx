@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { categories, featuredProjects, moreProjects, type Category, type Project } from '../data/projects'
+import { archiveProjects, categories, featuredTitles, type Category, type Project } from '../data/projects'
 import { Container } from './ui/Container'
 import { ProjectLinks } from './ui/ProjectLinks'
 import { Reveal } from './ui/Reveal'
@@ -10,28 +10,27 @@ import { Window } from './ui/Window'
 // The grid shows every project except the featured ones above it.
 export function MoreProjects() {
   const [filter, setFilter] = useState<Category | 'all'>('all')
-  const visible = filter === 'all' ? moreProjects : moreProjects.filter((p) => p.category === filter)
-  const total = featuredProjects.length + moreProjects.length
+  const visible = filter === 'all' ? archiveProjects : archiveProjects.filter((p) => p.category === filter)
 
   return (
     <section id="projects" className="py-28 sm:py-36">
       <Container>
         <SectionHeading
           index="02"
-          eyebrow="More projects"
+          eyebrow="All projects"
           title={
             <>
-              The rest of the <span className="text-accent-text">archive.</span>
+              The full <span className="text-accent-text">archive.</span>
             </>
           }
-          description={`${total} projects and counting, from my first hand-coded landing pages to typed React apps and APIs.`}
+          description={`All ${archiveProjects.length} projects, newest first: from typed React apps and APIs back to my first hand-coded landing pages.`}
         />
 
         <Reveal className="mt-10">
           <div role="group" aria-label="Filter projects" className="flex flex-wrap gap-2">
             {categories.map((cat) => {
               const count =
-                cat.id === 'all' ? moreProjects.length : moreProjects.filter((p) => p.category === cat.id).length
+                cat.id === 'all' ? archiveProjects.length : archiveProjects.filter((p) => p.category === cat.id).length
               if (count === 0) return null
               const selected = filter === cat.id
               return (
@@ -78,6 +77,11 @@ function ProjectCard({ project }: { project: Project }) {
             />
           ) : (
             <CodePreview lines={project.preview ?? []} />
+          )}
+          {featuredTitles.has(project.title) && (
+            <span className="bevel btn95-primary absolute top-2.5 left-2.5 px-2 py-1 font-pixel text-[11px]">
+              ★ Featured
+            </span>
           )}
           {project.rtl && (
             <span className="bevel absolute top-2.5 right-2.5 bg-surface px-2 py-1 font-pixel text-[11px] text-fg">
