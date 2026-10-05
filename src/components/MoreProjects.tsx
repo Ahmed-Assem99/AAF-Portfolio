@@ -5,6 +5,7 @@ import { ProjectLinks } from './ui/ProjectLinks'
 import { Reveal } from './ui/Reveal'
 import { SectionHeading } from './ui/SectionHeading'
 import { TechList } from './ui/TechList'
+import { Window } from './ui/Window'
 
 // The grid shows every project except the featured ones above it.
 export function MoreProjects() {
@@ -39,11 +40,9 @@ export function MoreProjects() {
                   type="button"
                   aria-pressed={selected}
                   onClick={() => setFilter(cat.id)}
-                  className={`rounded-full border px-3.5 py-1.5 text-sm transition-colors ${
-                    selected ? 'border-fg bg-fg text-bg' : 'border-line text-muted hover:border-line-strong hover:text-fg'
-                  }`}
+                  className="btn95 px-3.5 py-2 text-sm"
                 >
-                  {cat.label} <span className="font-mono text-xs opacity-60">{count}</span>
+                  {cat.label} <span className="text-xs opacity-60">{count}</span>
                 </button>
               )
             })}
@@ -66,48 +65,50 @@ export function MoreProjects() {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-line-strong">
-      <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-surface-2">
-        {project.image ? (
-          <img
-            src={project.image}
-            alt={`Screenshot of ${project.title}`}
-            loading="lazy"
-            decoding="async"
-            className="size-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
-          />
-        ) : (
-          <CodePreview lines={project.preview ?? []} />
-        )}
-        {project.rtl && (
-          <span className="absolute top-3 right-3 rounded-full bg-bg/85 px-2 py-0.5 font-mono text-[10px] text-muted backdrop-blur">
-            RTL · العربية
-          </span>
-        )}
-      </div>
-
-      <div className="flex flex-1 flex-col p-5">
-        <p className="font-mono text-[11px] tracking-wide text-subtle uppercase">{project.tagline}</p>
-        <h3 className="mt-1.5 text-lg font-medium tracking-tight" dir="auto">
-          {project.title}
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted">{project.description}</p>
-        <TechList items={project.tech} className="mt-4" />
-        <div className="mt-auto pt-5">
-          <ProjectLinks title={project.title} live={project.live} repo={project.repo} size="sm" />
+    <article className="h-full">
+      <Window title={project.title} className="flex h-full flex-col" bodyClassName="flex flex-1 flex-col">
+        <div className="bevel-in relative mt-[3px] aspect-[16/10] overflow-hidden bg-surface-2 p-[2px]">
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={`Screenshot of ${project.title}`}
+              loading="lazy"
+              decoding="async"
+              className="size-full object-cover object-top"
+            />
+          ) : (
+            <CodePreview lines={project.preview ?? []} />
+          )}
+          {project.rtl && (
+            <span className="bevel absolute top-2.5 right-2.5 bg-surface px-2 py-1 font-pixel text-[11px] text-fg">
+              RTL · العربية
+            </span>
+          )}
         </div>
-      </div>
+
+        <div className="flex flex-1 flex-col px-3 pt-4 pb-3">
+          <p className="font-pixel text-xs text-subtle uppercase">{project.tagline}</p>
+          <h3 className="mt-1.5 text-lg font-medium tracking-tight" dir="auto">
+            {project.title}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted">{project.description}</p>
+          <TechList items={project.tech} className="mt-4" />
+          <div className="mt-auto pt-5">
+            <ProjectLinks title={project.title} live={project.live} repo={project.repo} size="sm" />
+          </div>
+        </div>
+      </Window>
     </article>
   )
 }
 
 function CodePreview({ lines }: { lines: string[] }) {
   return (
-    <div className="bg-dots flex size-full items-center justify-center p-6">
-      <pre className="w-full rounded-lg border border-line bg-bg/90 p-4 font-mono text-[11px] leading-6 text-muted shadow-card">
+    <div className="flex size-full items-center bg-black p-5">
+      <pre className="w-full font-term text-lg leading-snug text-[#5af78e]">
         {lines.map((line, i) => (
           <span key={line} className="block">
-            <span className="mr-3 text-subtle select-none">{i + 1}</span>
+            <span className="mr-3 text-[#7d879a] select-none">{i + 1}</span>
             {line}
           </span>
         ))}

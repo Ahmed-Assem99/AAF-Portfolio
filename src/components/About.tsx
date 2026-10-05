@@ -2,6 +2,7 @@ import { site, skills } from '../data/site'
 import { Container } from './ui/Container'
 import { Reveal } from './ui/Reveal'
 import { SectionHeading } from './ui/SectionHeading'
+import { Window } from './ui/Window'
 
 export function About() {
   return (
@@ -15,7 +16,7 @@ export function About() {
               I like building things that look good and{' '}
               <span className="text-accent-text">quietly save people hours.</span>
             </p>
-            <p className="mt-6 font-mono text-sm text-muted">
+            <p className="mt-6 font-pixel text-sm text-muted">
               {site.name} <span className="text-subtle">· AAF</span>
             </p>
           </Reveal>
@@ -39,10 +40,10 @@ export function About() {
         </div>
 
         <Reveal className="mt-20">
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+          <Window title="Skills.txt" bodyClassName="grid gap-3 p-3 sm:grid-cols-2 sm:p-4 lg:grid-cols-4">
             {skills.map((group) => (
-              <div key={group.group} className="bg-bg p-6">
-                <h3 className="font-brand text-[11px] tracking-[0.28em] text-accent-text uppercase">{group.group}</h3>
+              <div key={group.group} className="bevel-in bg-surface-2 p-5">
+                <h3 className="font-pixel text-sm text-accent-text uppercase">{group.group}</h3>
                 <ul className="mt-4 space-y-2 text-[15px]">
                   {group.items.map((item) => (
                     <li key={item}>{item}</li>
@@ -50,7 +51,7 @@ export function About() {
                 </ul>
               </div>
             ))}
-          </div>
+          </Window>
         </Reveal>
       </Container>
     </section>

@@ -1,57 +1,79 @@
-import { Menu, Moon, Sun, X } from 'lucide-react'
-import { useEffect, useState } from 'react'
-import { navLinks } from '../data/site'
+import { ArrowUpRight, Moon, Sun } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { navLinks, site } from '../data/site'
 import { useActiveSection } from '../hooks/useActiveSection'
 import { useTheme } from '../hooks/useTheme'
-import { Container } from './ui/Container'
-import { Logo } from './ui/Logo'
+import { AafMark } from './ui/Logo'
 
-// 'top' is observed too, so no link stays highlighted while the hero is in view.
+// 'top' is observed too, so no button stays pressed while the hero is in view.
 const sectionIds = ['top', ...navLinks.map((link) => link.id)]
 
+function useClock() {
+  const format = () => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  const [time, setTime] = useState(format)
+  useEffect(() => {
+    const id = setInterval(() => setTime(format()), 15_000)
+    return () => clearInterval(id)
+  }, [])
+  return time
+}
+
+// Site navigation styled as a Windows 95 taskbar, fixed to the bottom of the screen.
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const active = useActiveSection(sectionIds)
   const { theme, toggle } = useTheme()
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const time = useClock()
+  const menuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false)
+    const onClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setOpen(false)
+    }
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
+    window.addEventListener('mousedown', onClick)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('mousedown', onClick)
+    }
   }, [open])
-
-  const solid = scrolled || open
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
-        solid ? 'border-line bg-bg/80 backdrop-blur-xl' : 'border-transparent'
-      }`}
+      className="fixed inset-x-0 bottom-0 z-50 bg-surface"
+      style={{
+        paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+        boxShadow: 'inset 0 1px 0 var(--bevel-hi2), inset 0 2px 0 var(--bevel-hi)',
+      }}
     >
-      <Container className="flex h-16 items-center justify-between gap-6">
-        <a href="#top" className="rounded-md" aria-label="AAF Studio, back to top">
-          <Logo />
-        </a>
+      <div className="flex h-[3.25rem] items-center gap-1.5 px-1.5 sm:gap-2 sm:px-2">
+        <div ref={menuRef} className="relative">
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="start-menu"
+            className="btn95 h-9 px-2.5 text-sm font-bold"
+          >
+            <AafMark className="h-3 w-auto" />
+            Start
+          </button>
 
-        <nav aria-label="Primary" className="hidden md:block">
-          <ul className="flex items-center gap-1">
+          {open && <StartMenu onNavigate={() => setOpen(false)} />}
+        </div>
+
+        <span className="mx-0.5 h-8 w-px bg-line-strong" aria-hidden="true" />
+
+        <nav aria-label="Primary" className="hidden min-w-0 flex-1 md:block">
+          <ul className="flex gap-1.5">
             {navLinks.map((link) => (
               <li key={link.id}>
                 <a
                   href={`#${link.id}`}
                   aria-current={active === link.id ? 'true' : undefined}
-                  className={`rounded-full px-3.5 py-2 text-sm transition-colors ${
-                    active === link.id ? 'bg-surface-2 text-fg' : 'text-muted hover:text-fg'
-                  }`}
+                  className="btn95 h-9 w-[7.5rem] justify-start px-3 text-sm"
                 >
                   {link.label}
                 </a>
@@ -60,50 +82,66 @@ export function Navbar() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={toggle}
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            className="grid size-9 place-items-center rounded-full border border-line text-muted transition-colors hover:border-line-strong hover:text-fg"
-          >
-            {theme === 'dark' ? <Sun className="size-4" /> : <Moon className="size-4" />}
-          </button>
-          <a
-            href="#contact"
-            className="hidden rounded-full bg-fg px-4 py-2 text-sm font-medium text-bg transition-opacity hover:opacity-85 sm:inline-flex"
-          >
+        <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
+          <a href="#contact" className="btn95 btn95-primary h-9 px-3.5 text-sm">
             Let’s talk
           </a>
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            className="grid size-9 place-items-center rounded-full border border-line text-fg md:hidden"
-          >
-            {open ? <X className="size-4" /> : <Menu className="size-4" />}
-          </button>
+          <div className="bevel-in flex h-9 items-center gap-2 px-2">
+            <button
+              type="button"
+              onClick={toggle}
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              className="grid size-6 place-items-center text-muted hover:text-fg"
+            >
+              {theme === 'dark' ? <Sun className="size-4" /> : <Moon className="size-4" />}
+            </button>
+            <span className="font-pixel text-sm tabular-nums" aria-label={`Local time ${time}`}>
+              {time}
+            </span>
+          </div>
         </div>
-      </Container>
+      </div>
+    </header>
+  )
+}
 
-      {open && (
-        <nav id="mobile-menu" aria-label="Mobile" className="border-t border-line md:hidden">
-          <Container className="flex flex-col py-3">
-            {[...navLinks, { id: 'contact', label: 'Contact' }].map((link) => (
-              <a
-                key={link.id}
-                href={`#${link.id}`}
-                onClick={() => setOpen(false)}
-                className="border-b border-line py-3.5 text-lg last:border-0"
-              >
+function StartMenu({ onNavigate }: { onNavigate: () => void }) {
+  const item = 'flex items-center gap-3 px-3 py-2.5 font-pixel text-[15px] hover:bg-accent hover:text-accent-fg focus-visible:bg-accent focus-visible:text-accent-fg focus-visible:outline-none'
+  return (
+    <div id="start-menu" className="win absolute bottom-[calc(100%+6px)] left-0 flex w-72 max-w-[calc(100vw-1rem)]">
+      <div
+        className="flex w-8 shrink-0 items-end justify-center pb-3"
+        style={{ background: 'linear-gradient(0deg, var(--title-from), var(--title-to))' }}
+        aria-hidden="true"
+      >
+        <span className="font-brand text-sm font-semibold tracking-[0.3em] text-white [writing-mode:vertical-rl] rotate-180">
+          AAF STUDIO
+        </span>
+      </div>
+      <nav aria-label="Start menu" className="min-w-0 flex-1 py-1">
+        <ul>
+          {[...navLinks, { id: 'automation', label: 'Automation' }, { id: 'contact', label: 'Contact' }].map((link) => (
+            <li key={link.id}>
+              <a href={`#${link.id}`} onClick={onNavigate} className={item}>
                 {link.label}
               </a>
-            ))}
-          </Container>
-        </nav>
-      )}
-    </header>
+            </li>
+          ))}
+        </ul>
+        <div className="mx-2 my-1 h-0.5 bevel-in" aria-hidden="true" />
+        <ul>
+          <li>
+            <a href={site.store} target="_blank" rel="noreferrer" onClick={onNavigate} className={item}>
+              Template store <ArrowUpRight className="ml-auto size-4" />
+            </a>
+          </li>
+          <li>
+            <a href={site.github} target="_blank" rel="noreferrer" onClick={onNavigate} className={item}>
+              GitHub <ArrowUpRight className="ml-auto size-4" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   )
 }

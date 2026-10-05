@@ -1,21 +1,21 @@
 import { marquee } from '../data/site'
 
+// A scrolling ticker, a nod to the old <marquee> tag.
 export function StackMarquee() {
   const items = [...marquee, ...marquee]
   return (
-    <section aria-label="Technologies I work with" className="marquee overflow-hidden border-y border-line py-5">
-      <div
-        className="marquee-track flex w-max gap-10"
-        style={{ maskImage: 'linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)' }}
-      >
+    <section aria-label="Technologies I work with" className="marquee overflow-hidden bg-black py-2.5">
+      <div className="marquee-track flex w-max gap-8">
         {items.map((item, i) => (
           <span
             key={`${item}-${i}`}
             aria-hidden={i >= marquee.length}
-            className="flex items-center gap-10 font-mono text-sm whitespace-nowrap text-muted"
+            className="flex items-center gap-8 font-term text-2xl whitespace-nowrap text-[#5af78e]"
           >
             {item}
-            <span className="size-1 rounded-full bg-accent" aria-hidden="true" />
+            <span className="text-[#1f6bff]" aria-hidden="true">
+              ◆
+            </span>
           </span>
         ))}
       </div>

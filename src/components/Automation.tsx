@@ -3,6 +3,7 @@ import { workflows, type Workflow } from '../data/projects'
 import { Container } from './ui/Container'
 import { GithubIcon } from './ui/GithubIcon'
 import { Reveal } from './ui/Reveal'
+import { Window } from './ui/Window'
 
 // A compact strip for the n8n side of the work: present, but secondary to the web projects.
 export function Automation() {
@@ -11,8 +12,9 @@ export function Automation() {
       <Container>
         <Reveal className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <p className="font-brand text-[11px] tracking-[0.28em] text-muted uppercase">
-              <span className="text-accent-text">04</span> · Also on GitHub
+            <p className="flex items-center gap-2 font-pixel text-sm text-muted uppercase">
+              <span className="bg-accent px-1.5 py-0.5 text-accent-fg">04</span>
+              Also on GitHub
             </p>
             <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-3xl">AI automation with n8n</h2>
           </div>
@@ -37,11 +39,14 @@ export function Automation() {
 
 function WorkflowCard({ workflow }: { workflow: Workflow }) {
   return (
-    <article className="flex h-full flex-col rounded-xl border border-line bg-surface p-5">
-      <h3 className="font-medium tracking-tight">{workflow.title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted">{workflow.summary}</p>
+    <Window
+      title={<h3 className="truncate">{workflow.title}</h3>}
+      className="flex h-full flex-col"
+      bodyClassName="flex flex-1 flex-col px-3 pt-3 pb-3"
+    >
+      <p className="text-sm leading-relaxed text-muted">{workflow.summary}</p>
 
-      <ol className="mt-4 mb-5 flex flex-wrap items-center gap-x-1.5 gap-y-1 font-mono text-[11px] text-subtle">
+      <ol className="mt-4 mb-5 flex flex-wrap items-center gap-x-1.5 gap-y-1 font-pixel text-xs text-subtle">
         {workflow.steps.map((step, i) => (
           <li key={step} className="flex items-center gap-1.5">
             {i > 0 && <ArrowRight className="size-3 text-accent-text" aria-hidden="true" />}
@@ -50,18 +55,18 @@ function WorkflowCard({ workflow }: { workflow: Workflow }) {
         ))}
       </ol>
 
-      <div className="mt-auto flex items-center justify-between gap-3 border-t border-line pt-4">
-        <span className="truncate font-mono text-[11px] text-muted">{workflow.tech.join(' · ')}</span>
+      <div className="mt-auto flex items-center justify-between gap-3 border-t border-line-strong pt-3">
+        <span className="truncate font-pixel text-xs text-muted">{workflow.tech.join(' · ')}</span>
         <a
           href={workflow.repo}
           target="_blank"
           rel="noreferrer"
           aria-label={`${workflow.title}: source code on GitHub (opens in a new tab)`}
-          className="inline-flex shrink-0 items-center gap-1.5 text-xs font-medium text-muted transition-colors hover:text-fg"
+          className="btn95 shrink-0 px-2.5 py-1.5 text-xs"
         >
           <GithubIcon className="size-3.5" /> Code
         </a>
       </div>
-    </article>
+    </Window>
   )
 }

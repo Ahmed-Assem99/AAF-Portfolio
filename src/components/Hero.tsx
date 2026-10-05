@@ -5,33 +5,38 @@ import nutriplan from '../assets/projects/nutriplan.webp'
 import { heroStats, site } from '../data/site'
 import { BrowserFrame } from './ui/BrowserFrame'
 import { Container } from './ui/Container'
+import { Logo } from './ui/Logo'
 import { Reveal } from './ui/Reveal'
+import { Window } from './ui/Window'
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-20 sm:pt-40">
-      <div className="bg-grid pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div
-        className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full blur-3xl"
-        style={{ background: 'radial-gradient(closest-side, var(--glow), transparent)' }}
-        aria-hidden="true"
-      />
+    <section id="top" className="relative overflow-hidden pt-8 pb-20 sm:pt-10">
+      <Container className="relative">
+        <Reveal className="flex flex-wrap items-center justify-between gap-4">
+          <a href="#top" aria-label="AAF Studio, back to top">
+            <Logo />
+          </a>
+          <p className="bevel-in inline-flex items-center gap-2.5 bg-surface-2 px-3 py-1.5 font-pixel text-sm text-muted">
+            <span className="relative flex size-2">
+              <span className="animate-ping-soft absolute inline-flex size-full bg-emerald-500" />
+              <span className="relative inline-flex size-2 bg-emerald-500" />
+            </span>
+            Available for freelance & collaborations
+          </p>
+        </Reveal>
+      </Container>
 
-      <Container className="relative grid items-center gap-16 lg:grid-cols-12">
+      <Container className="relative mt-16 grid items-center gap-16 sm:mt-24 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <Reveal>
-            <p className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/70 py-1.5 pr-4 pl-3 text-sm text-muted backdrop-blur">
-              <span className="relative flex size-2">
-                <span className="animate-ping-soft absolute inline-flex size-full rounded-full bg-emerald-500" />
-                <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-              </span>
-              Available for freelance & collaborations
-            </p>
+            <p className="font-term text-xl text-term">C:\AAF_STUDIO&gt; whoami</p>
           </Reveal>
 
           <Reveal delay={80}>
-            <h1 className="mt-7 text-[2.75rem] leading-[1.02] font-medium tracking-[-0.035em] text-balance sm:text-6xl lg:text-[4.6rem]">
-              I design and build <span className="text-accent-text">digital products</span> for the web.
+            <h1 className="mt-4 text-[2.75rem] leading-[1.02] font-medium tracking-[-0.035em] text-balance sm:text-6xl lg:text-[4.6rem]">
+              I design and build <span className="text-accent-text">digital products</span> for the web
+              <span className="animate-blink ml-1 inline-block h-[0.8em] w-[0.42em] translate-y-[0.08em] bg-accent" aria-hidden="true" />
             </h1>
           </Reveal>
 
@@ -44,19 +49,13 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={240} className="mt-9 flex flex-wrap items-center gap-3">
-            <a
-              href="#work"
-              className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-accent-fg transition-transform hover:-translate-y-0.5"
-            >
+            <a href="#work" className="btn95 btn95-primary px-5 py-3.5 text-[15px]">
               View my work
-              <ArrowDown className="size-4 transition-transform group-hover:translate-y-0.5" />
+              <ArrowDown className="size-4" />
             </a>
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-3.5 text-sm font-medium transition-colors hover:bg-surface-2"
-            >
+            <a href="#contact" className="btn95 px-5 py-3.5 text-[15px]">
               Start a project
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight className="size-4" />
             </a>
             <span className="ml-1 inline-flex items-center gap-1.5 text-sm text-subtle">
               <MapPin className="size-3.5" /> {site.location}
@@ -71,17 +70,19 @@ export function Hero() {
 
       <Container className="relative mt-20">
         <Reveal>
-          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
-            {heroStats.map((stat) => (
-              <div key={stat.label} className="bg-bg px-6 py-6">
-                <dt className="sr-only">{stat.label}</dt>
-                <dd>
-                  <span className="block text-3xl font-medium tracking-tight">{stat.value}</span>
-                  <span className="mt-1 block text-sm text-muted">{stat.label}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
+          <Window title="System Properties" bodyClassName="p-3 sm:p-4">
+            <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {heroStats.map((stat) => (
+                <div key={stat.label} className="bevel-in bg-surface-2 px-4 py-4">
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd>
+                    <span className="block font-pixel text-3xl tracking-tight">{stat.value}</span>
+                    <span className="mt-1 block text-sm text-muted">{stat.label}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </Window>
         </Reveal>
       </Container>
     </section>
@@ -91,13 +92,13 @@ export function Hero() {
 function HeroCollage() {
   return (
     <div className="relative mx-auto aspect-[5/4] w-full max-w-[520px]">
-      <BrowserFrame className="absolute top-0 right-0 w-[78%] rotate-3 opacity-90">
+      <BrowserFrame url="COSMOS.exe" className="absolute top-0 right-0 w-[78%]">
         <img src={cosmos} alt="" className="aspect-[16/10] w-full object-cover object-top" />
       </BrowserFrame>
-      <BrowserFrame className="absolute top-[22%] left-0 w-[78%] -rotate-2">
+      <BrowserFrame url="NutriPlan.exe" className="absolute top-[22%] left-0 w-[78%]">
         <img src={nutriplan} alt="" className="aspect-[16/10] w-full object-cover object-top" />
       </BrowserFrame>
-      <BrowserFrame className="absolute right-[6%] bottom-0 w-[74%] rotate-1">
+      <BrowserFrame url="Lumen.exe" className="absolute right-[6%] bottom-0 w-[74%]">
         <img
           src={lumen}
           alt="Screenshots of COSMOS, NutriPlan and Lumen, three projects from this portfolio"
@@ -105,18 +106,14 @@ function HeroCollage() {
         />
       </BrowserFrame>
 
-      <div className="animate-float absolute -bottom-6 -left-2 rounded-xl border border-line bg-surface/95 p-3.5 font-mono text-[11px] leading-relaxed shadow-card backdrop-blur sm:-left-6">
-        <p className="text-subtle">$ npm run build</p>
-        <p>
-          <span className="text-emerald-500">✓</span> type-checked with <span className="text-accent-text">TypeScript</span>
-        </p>
-        <p>
-          <span className="text-emerald-500">✓</span> production build ready
-        </p>
-        <p>
-          <span className="text-emerald-500">✓</span> deployed to Vercel
-        </p>
-      </div>
+      <Window title="MS-DOS Prompt" className="animate-float absolute -bottom-8 -left-2 w-60 sm:-left-6">
+        <div className="mt-[3px] bg-black px-3 py-2 font-term text-[17px] leading-tight text-[#5af78e]">
+          <p className="text-[#a7b0bf]">C:\&gt; npm run build</p>
+          <p>✓ type-checked with TypeScript</p>
+          <p>✓ production build ready</p>
+          <p>✓ deployed to Vercel</p>
+        </div>
+      </Window>
     </div>
   )
 }
