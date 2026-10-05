@@ -12,7 +12,7 @@ export function Automation() {
       <Container>
         <Reveal className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <p className="flex items-center gap-2 font-pixel text-sm text-muted uppercase">
+            <p className="type-in flex items-center gap-2 font-pixel text-sm text-muted uppercase">
               <span className="bg-accent px-1.5 py-0.5 text-accent-fg">04</span>
               Also on GitHub
             </p>
@@ -41,6 +41,7 @@ function WorkflowCard({ workflow }: { workflow: Workflow }) {
   return (
     <Window
       title={<h3 className="truncate">{workflow.title}</h3>}
+      bootLabel={workflow.title}
       className="flex h-full flex-col"
       bodyClassName="flex flex-1 flex-col px-3 pt-3 pb-3"
     >

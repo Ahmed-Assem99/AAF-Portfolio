@@ -54,7 +54,7 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
                 alt=""
                 loading="lazy"
                 decoding="async"
-                className="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                className="glitch aspect-[16/10] w-full object-cover object-top"
               />
             </div>
           </BrowserFrame>

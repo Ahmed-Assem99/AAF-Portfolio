@@ -4,6 +4,7 @@ import { Contact } from './components/Contact'
 import { FeaturedWork } from './components/FeaturedWork'
 import { Footer } from './components/Footer'
 import { Hero } from './components/Hero'
+import { MessageToast } from './components/MessageToast'
 import { MoreProjects } from './components/MoreProjects'
 import { Navbar } from './components/Navbar'
 import { Services } from './components/Services'
@@ -32,6 +33,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <MessageToast />
     </>
   )
 }

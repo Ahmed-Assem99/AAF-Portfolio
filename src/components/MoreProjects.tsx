@@ -74,7 +74,7 @@ function ProjectCard({ project }: { project: Project }) {
               alt={`Screenshot of ${project.title}`}
               loading="lazy"
               decoding="async"
-              className="size-full object-cover object-top"
+              className="glitch size-full object-cover object-top"
             />
           ) : (
             <CodePreview lines={project.preview ?? []} />

@@ -43,7 +43,7 @@ export function Services() {
                   <p className="mt-3 leading-relaxed text-muted">{service.body}</p>
                   <ul className="mt-6 flex flex-wrap gap-1.5">
                     {service.points.map((point) => (
-                      <li key={point} className="bevel-in bg-surface-2 px-2 py-1 font-pixel text-xs text-muted">
+                      <li key={point} className="chip bevel-in bg-surface-2 px-2 py-1 font-pixel text-xs text-muted">
                         {point}
                       </li>
                     ))}

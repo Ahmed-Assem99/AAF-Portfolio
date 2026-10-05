@@ -1,4 +1,5 @@
-import { useEffect, useRef, type CSSProperties, type ReactNode } from 'react'
+import { useRef, type CSSProperties, type ReactNode } from 'react'
+import { useInView } from '../../hooks/useInView'
 
 interface RevealProps {
   children: ReactNode
@@ -6,28 +7,18 @@ interface RevealProps {
   className?: string
 }
 
-// Fades its children in the first time they scroll into view.
+// Boots its children up the first time they scroll into view: a quick CRT-style paint
+// from top to bottom with a flicker (see .reveal in index.css).
 export function Reveal({ children, delay = 0, className = '' }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add('is-visible')
-          observer.disconnect()
-        }
-      },
-      { rootMargin: '0px 0px -10% 0px' },
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
+  const inView = useInView(ref)
 
   return (
-    <div ref={ref} className={`reveal ${className}`} style={{ '--reveal-delay': `${delay}ms` } as CSSProperties}>
+    <div
+      ref={ref}
+      className={`reveal ${inView ? 'is-visible' : ''} ${className}`}
+      style={{ '--reveal-delay': `${delay}ms` } as CSSProperties}
+    >
       {children}
     </div>
   )

@@ -47,7 +47,9 @@ src/
 
 - A dark Windows 95-inspired look: bevelled windows, a taskbar at the top with a Start menu and clock,
   CRT scanlines and pixel/terminal type (Pixelify Sans, VT323); the light theme is classic silver
-- Dark and light themes, following the system on a first visit and remembering the choice
+- Light theme by default with a dark mode toggle that remembers the choice
+- Elements "boot up" as they scroll into view (CRT paint plus a quick terminal inside each window),
+  windows light up and lift on hover, and a "New Message" notification eases in at the bottom right
 - Scroll-reveal motion that turns off for visitors who prefer reduced motion
 - Filterable project archive, responsive down to phone width
 - Self-hosted fonts (Inter Tight, Montserrat, Pixelify Sans, VT323, JetBrains Mono), with no third-party requests

@@ -66,7 +66,7 @@ export function Footer() {
           {badges.map((b) => (
             <li
               key={b.bottom}
-              className="flex h-[31px] w-[88px] flex-col items-center justify-center border border-[#4d5a78] bg-black font-pixel leading-none"
+              className="badge-88 flex h-[31px] w-[88px] flex-col items-center justify-center border border-[#4d5a78] bg-black font-pixel leading-none"
             >
               <span className="text-[8px] tracking-wide text-[#a7b0bf]">{b.top}</span>
               <span className="mt-0.5 text-[11px] font-semibold" style={{ color: b.color }}>

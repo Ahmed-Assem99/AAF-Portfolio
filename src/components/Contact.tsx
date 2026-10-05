@@ -1,35 +1,20 @@
 import { ArrowUpRight, Check, Copy, Mail } from 'lucide-react'
-import { useEffect, useState } from 'react'
 import { site } from '../data/site'
+import { useCopyEmail } from '../hooks/useCopyEmail'
 import { Container } from './ui/Container'
 import { GithubIcon } from './ui/GithubIcon'
 import { Reveal } from './ui/Reveal'
 import { Window } from './ui/Window'
 
 export function Contact() {
-  const [copied, setCopied] = useState(false)
-
-  useEffect(() => {
-    if (!copied) return
-    const t = setTimeout(() => setCopied(false), 2000)
-    return () => clearTimeout(t)
-  }, [copied])
-
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(site.email)
-      setCopied(true)
-    } catch {
-      window.location.href = `mailto:${site.email}`
-    }
-  }
+  const { copied, copy: copyEmail } = useCopyEmail()
 
   return (
     <section id="contact" className="pb-16 sm:pb-24">
       <Container>
         <Reveal>
           <Window title="New Message - AAF Studio" bodyClassName="px-5 py-12 text-center sm:px-12 sm:py-20">
-            <p className="flex items-center justify-center gap-2 font-pixel text-sm text-muted uppercase">
+            <p className="type-in flex items-center justify-center gap-2 font-pixel text-sm text-muted uppercase">
               <span className="bg-accent px-1.5 py-0.5 text-accent-fg">07</span>
               Contact
             </p>
