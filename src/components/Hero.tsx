@@ -98,7 +98,7 @@ function HeroCollage() {
         />
       </BrowserFrame>
 
-      <Window title="MS-DOS Prompt" boot={false} className="no-lift animate-float absolute -bottom-8 -left-2 w-60 sm:-left-6">
+      <Window title="MS-DOS Prompt" boot={false} className="no-lift animate-float absolute -bottom-8 -left-2 w-[17.5rem] max-w-[calc(100%+0.5rem)] sm:-left-6">
         <div className="is-running mt-[3px] min-h-[6.2rem] bg-black px-3 py-2 font-term text-[17px] leading-tight text-[#5af78e]">
           {buildLog.map((line, i) => (
             <p

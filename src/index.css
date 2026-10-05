@@ -341,10 +341,10 @@
 }
 
 .type-line {
-  width: 0;
-  max-width: 100%;
-  overflow: hidden;
   white-space: nowrap;
+  /* Hidden until it types in. A clip, not a width, so the finished line always shows in full
+     whatever its real width (symbols like ✓ are wider than one character). */
+  clip-path: inset(0 100% 0 0);
 }
 
 .is-running .type-line {
@@ -354,7 +354,7 @@
 
 @keyframes type-in {
   to {
-    width: calc(var(--chars, 16) * 1ch);
+    clip-path: inset(0 0 0 0);
   }
 }
 
@@ -565,6 +565,12 @@ label[for] {
   }
 
   .win:hover img.glitch {
+    animation: none;
+  }
+
+  .type-line,
+  .is-running .type-line {
+    clip-path: none;
     animation: none;
   }
 
