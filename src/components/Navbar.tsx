@@ -18,7 +18,7 @@ function useClock() {
   return time
 }
 
-// Site navigation styled as a Windows 95 taskbar, fixed to the bottom of the screen.
+// Site navigation styled as a Windows 95 taskbar, fixed to the top of the screen.
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const active = useActiveSection(sectionIds)
@@ -42,10 +42,10 @@ export function Navbar() {
 
   return (
     <header
-      className="fixed inset-x-0 bottom-0 z-50 bg-surface"
+      className="fixed inset-x-0 top-0 z-50 bg-surface"
       style={{
-        paddingBottom: 'env(safe-area-inset-bottom, 0px)',
-        boxShadow: 'inset 0 1px 0 var(--bevel-hi2), inset 0 2px 0 var(--bevel-hi)',
+        paddingTop: 'env(safe-area-inset-top, 0px)',
+        boxShadow: 'inset 0 -1px 0 var(--bevel-lo), inset 0 -2px 0 var(--bevel-mid)',
       }}
     >
       <div className="flex h-[3.25rem] items-center gap-1.5 px-1.5 sm:gap-2 sm:px-2">
@@ -108,10 +108,10 @@ export function Navbar() {
 function StartMenu({ onNavigate }: { onNavigate: () => void }) {
   const item = 'flex items-center gap-3 px-3 py-2.5 font-pixel text-[15px] hover:bg-accent hover:text-accent-fg focus-visible:bg-accent focus-visible:text-accent-fg focus-visible:outline-none'
   return (
-    <div id="start-menu" className="win absolute bottom-[calc(100%+6px)] left-0 flex w-72 max-w-[calc(100vw-1rem)]">
+    <div id="start-menu" className="win absolute top-[calc(100%+6px)] left-0 flex w-72 max-w-[calc(100vw-1rem)]">
       <div
         className="flex w-8 shrink-0 items-end justify-center pb-3"
-        style={{ background: 'linear-gradient(0deg, var(--title-from), var(--title-to))' }}
+        style={{ background: 'linear-gradient(180deg, var(--title-from), var(--title-to))' }}
         aria-hidden="true"
       >
         <span className="font-brand text-sm font-semibold tracking-[0.3em] text-white [writing-mode:vertical-rl] rotate-180">
