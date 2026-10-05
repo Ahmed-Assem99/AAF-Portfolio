@@ -106,7 +106,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 1.5rem;
+    scroll-padding-top: 4.5rem;
   }
 
   body {
@@ -118,8 +118,8 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    /* Room for the fixed taskbar at the bottom. */
-    padding-bottom: calc(3.25rem + env(safe-area-inset-bottom, 0px));
+    /* Room for the fixed taskbar at the top. */
+    padding-top: calc(3.25rem + env(safe-area-inset-top, 0px));
   }
 
   /* CRT scanlines over the whole screen. Purely visual and never blocks clicks. */

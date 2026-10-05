@@ -45,7 +45,7 @@ src/
 
 ## Features
 
-- A dark Windows 95-inspired look: bevelled windows, a bottom taskbar with a Start menu and clock,
+- A dark Windows 95-inspired look: bevelled windows, a taskbar at the top with a Start menu and clock,
   CRT scanlines and pixel/terminal type (Pixelify Sans, VT323); the light theme is classic silver
 - Dark and light themes, following the system on a first visit and remembering the choice
 - Scroll-reveal motion that turns off for visitors who prefer reduced motion
