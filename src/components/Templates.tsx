@@ -1,7 +1,8 @@
-import { ArrowUpRight, Check, ShoppingBag } from 'lucide-react'
+import { ArrowUpRight, ShoppingBag } from 'lucide-react'
 import { site } from '../data/site'
 import { Container } from './ui/Container'
 import { AafMark } from './ui/Logo'
+import { PixelBullet } from './ui/PixelBullet'
 import { Reveal } from './ui/Reveal'
 import { Window } from './ui/Window'
 
@@ -21,7 +22,7 @@ export function Templates() {
           <Window title="Template Store - AAF Studio" bodyClassName="p-6 sm:p-10 lg:p-14">
             <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
               <div className="lg:col-span-7">
-                <p className="flex items-center gap-2 font-pixel text-sm text-muted uppercase">
+                <p className="type-in flex items-center gap-2 font-pixel text-sm text-muted uppercase">
                   <span className="bg-accent px-1.5 py-0.5 text-accent-fg">03</span>
                   Templates
                 </p>
@@ -36,7 +37,7 @@ export function Templates() {
                 <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                   {included.map((item) => (
                     <li key={item} className="flex gap-3 text-sm leading-relaxed">
-                      <Check className="mt-0.5 size-4 shrink-0 text-accent-text" aria-hidden="true" />
+                      <PixelBullet className="mt-[5px]" />
                       {item}
                     </li>
                   ))}

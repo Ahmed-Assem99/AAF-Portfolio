@@ -2,6 +2,7 @@ import { site, skills } from '../data/site'
 import { Container } from './ui/Container'
 import { Reveal } from './ui/Reveal'
 import { SectionHeading } from './ui/SectionHeading'
+import { TechIcon } from './ui/TechIcon'
 import { Window } from './ui/Window'
 
 export function About() {
@@ -44,9 +45,12 @@ export function About() {
             {skills.map((group) => (
               <div key={group.group} className="bevel-in bg-surface-2 p-5">
                 <h3 className="font-pixel text-sm text-accent-text uppercase">{group.group}</h3>
-                <ul className="mt-4 space-y-2 text-[15px]">
+                <ul className="mt-4 space-y-2.5 text-[15px]">
                   {group.items.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex items-center gap-2.5">
+                      <TechIcon name={item} className="size-4" />
+                      {item}
+                    </li>
                   ))}
                 </ul>
               </div>

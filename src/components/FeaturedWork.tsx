@@ -1,6 +1,6 @@
-import { Check } from 'lucide-react'
 import { featuredProjects, type Project } from '../data/projects'
 import { BrowserFrame } from './ui/BrowserFrame'
+import { PixelBullet } from './ui/PixelBullet'
 import { Container } from './ui/Container'
 import { ProjectLinks } from './ui/ProjectLinks'
 import { Reveal } from './ui/Reveal'
@@ -54,7 +54,7 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
                 alt=""
                 loading="lazy"
                 decoding="async"
-                className="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                className="glitch aspect-[16/10] w-full object-cover object-top"
               />
             </div>
           </BrowserFrame>
@@ -73,7 +73,7 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
           <ul className="mt-6 space-y-2.5">
             {project.highlights.map((h) => (
               <li key={h} className="flex gap-3 text-sm leading-relaxed">
-                <Check className="mt-0.5 size-4 shrink-0 text-accent-text" aria-hidden="true" />
+                <PixelBullet className="mt-[5px]" />
                 {h}
               </li>
             ))}

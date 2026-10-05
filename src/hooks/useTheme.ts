@@ -5,7 +5,7 @@ export type Theme = 'light' | 'dark'
 const STORAGE_KEY = 'aaf-theme'
 
 function currentTheme(): Theme {
-  return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark'
+  return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
 }
 
 // The initial theme is set by an inline script in index.html before first paint.

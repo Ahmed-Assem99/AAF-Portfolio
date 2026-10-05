@@ -108,7 +108,7 @@ export function Navbar() {
 function StartMenu({ onNavigate }: { onNavigate: () => void }) {
   const item = 'flex items-center gap-3 px-3 py-2.5 font-pixel text-[15px] hover:bg-accent hover:text-accent-fg focus-visible:bg-accent focus-visible:text-accent-fg focus-visible:outline-none'
   return (
-    <div id="start-menu" className="win absolute top-[calc(100%+6px)] left-0 flex w-72 max-w-[calc(100vw-1rem)]">
+    <div id="start-menu" className="win no-lift absolute top-[calc(100%+6px)] left-0 flex w-72 max-w-[calc(100vw-1rem)]">
       <div
         className="flex w-8 shrink-0 items-end justify-center pb-3"
         style={{ background: 'linear-gradient(180deg, var(--title-from), var(--title-to))' }}

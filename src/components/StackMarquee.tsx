@@ -1,4 +1,5 @@
 import { marquee } from '../data/site'
+import { TechIcon } from './ui/TechIcon'
 
 // A scrolling ticker, a nod to the old <marquee> tag.
 export function StackMarquee() {
@@ -12,7 +13,10 @@ export function StackMarquee() {
             aria-hidden={i >= marquee.length}
             className="flex items-center gap-8 font-term text-2xl whitespace-nowrap text-[#5af78e]"
           >
-            {item}
+            <span className="flex items-center gap-2.5">
+              <TechIcon name={item} className="size-5" />
+              {item}
+            </span>
             <span className="text-[#1f6bff]" aria-hidden="true">
               ◆
             </span>

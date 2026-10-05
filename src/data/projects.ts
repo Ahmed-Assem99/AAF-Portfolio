@@ -103,6 +103,7 @@ export const featuredProjects: Project[] = [
     tech: ['React', 'TypeScript', 'HeroUI', 'React Hook Form', 'Zod', 'Axios'],
     category: 'react',
     image: circle,
+    live: 'https://project16-circle-psi.vercel.app/signin',
     repo: gh('Project16-Circle'),
   },
   {

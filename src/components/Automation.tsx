@@ -3,6 +3,7 @@ import { workflows, type Workflow } from '../data/projects'
 import { Container } from './ui/Container'
 import { GithubIcon } from './ui/GithubIcon'
 import { Reveal } from './ui/Reveal'
+import { TechIcon } from './ui/TechIcon'
 import { Window } from './ui/Window'
 
 // A compact strip for the n8n side of the work: present, but secondary to the web projects.
@@ -12,7 +13,7 @@ export function Automation() {
       <Container>
         <Reveal className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <p className="flex items-center gap-2 font-pixel text-sm text-muted uppercase">
+            <p className="type-in flex items-center gap-2 font-pixel text-sm text-muted uppercase">
               <span className="bg-accent px-1.5 py-0.5 text-accent-fg">04</span>
               Also on GitHub
             </p>
@@ -41,6 +42,7 @@ function WorkflowCard({ workflow }: { workflow: Workflow }) {
   return (
     <Window
       title={<h3 className="truncate">{workflow.title}</h3>}
+      bootLabel={workflow.title}
       className="flex h-full flex-col"
       bodyClassName="flex flex-1 flex-col px-3 pt-3 pb-3"
     >
@@ -56,7 +58,14 @@ function WorkflowCard({ workflow }: { workflow: Workflow }) {
       </ol>
 
       <div className="mt-auto flex items-center justify-between gap-3 border-t border-line-strong pt-3">
-        <span className="truncate font-pixel text-xs text-muted">{workflow.tech.join(' · ')}</span>
+        <ul className="flex min-w-0 flex-wrap items-center gap-2" aria-label="Tech stack">
+          {workflow.tech.map((t) => (
+            <li key={t} title={t} className="flex items-center gap-1 font-pixel text-xs text-muted">
+              <TechIcon name={t} className="size-4" />
+              <span className="sr-only sm:not-sr-only">{t}</span>
+            </li>
+          ))}
+        </ul>
         <a
           href={workflow.repo}
           target="_blank"
