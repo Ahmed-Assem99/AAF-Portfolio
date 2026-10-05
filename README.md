@@ -48,6 +48,8 @@ src/
 - A dark Windows 95-inspired look: bevelled windows, a taskbar at the top with a Start menu and clock,
   CRT scanlines and pixel/terminal type (Pixelify Sans, VT323); the light theme is classic silver
 - Light theme by default with a dark mode toggle that remembers the choice
+- On wide screens, a Space Invaders scene plays in the side margins: aliens march down, a cannon
+  shoots them, and hovering an alien zaps it for points (score and high score at the top)
 - Elements "boot up" as they scroll into view (CRT paint plus a quick terminal inside each window),
   windows light up and lift on hover, and a "New Message" notification eases in at the bottom right
 - Scroll-reveal motion that turns off for visitors who prefer reduced motion
