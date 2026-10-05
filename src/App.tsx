@@ -1,4 +1,5 @@
 import { About } from './components/About'
+import { ArcadeGutters } from './components/ArcadeGutters'
 import { Automation } from './components/Automation'
 import { Contact } from './components/Contact'
 import { FeaturedWork } from './components/FeaturedWork'
@@ -21,6 +22,7 @@ function App() {
         Skip to content
       </a>
       <Navbar />
+      <ArcadeGutters />
       <main>
         <Hero />
         <StackMarquee />
