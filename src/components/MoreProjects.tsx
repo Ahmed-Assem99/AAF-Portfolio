@@ -16,7 +16,7 @@ export function MoreProjects() {
     <section id="projects" className="py-28 sm:py-36">
       <Container>
         <SectionHeading
-          index="02"
+          index="03"
           eyebrow="All projects"
           title={
             <>

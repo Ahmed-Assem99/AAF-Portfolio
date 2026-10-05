@@ -29,7 +29,7 @@ export function Hero() {
         </Reveal>
       </Container>
 
-      <Container className="relative mt-16 grid items-center gap-16 sm:mt-24 lg:grid-cols-12">
+      <Container className="relative mt-16 grid grid-cols-1 items-center gap-16 sm:mt-24 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <Reveal>
             <p className="font-term text-xl text-term">C:\AAF_STUDIO&gt; whoami</p>

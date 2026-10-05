@@ -15,10 +15,10 @@ export const site = {
 }
 
 export const navLinks = [
+  { id: 'services', label: 'Services' },
   { id: 'work', label: 'Work' },
   { id: 'projects', label: 'Projects' },
   { id: 'templates', label: 'Templates' },
-  { id: 'services', label: 'Services' },
   { id: 'about', label: 'About' },
 ]
 

@@ -12,7 +12,7 @@ export function FeaturedWork() {
     <section id="work" className="overflow-x-clip py-28 sm:py-36">
       <Container>
         <SectionHeading
-          index="01"
+          index="02"
           eyebrow="Selected work"
           title={
             <>
@@ -37,8 +37,8 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
   const host = project.live ? new URL(project.live).host : 'github.com/Ahmed-Assem99'
 
   return (
-    <article className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
-      <Reveal className={`lg:col-span-7 ${flipped ? 'lg:order-2' : ''}`}>
+    <article className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
+      <Reveal className={`min-w-0 lg:col-span-7 ${flipped ? 'lg:order-2' : ''}`}>
         <a
           href={project.live ?? project.repo}
           target="_blank"
@@ -61,7 +61,7 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
         </a>
       </Reveal>
 
-      <Reveal delay={120} className="lg:col-span-5">
+      <Reveal delay={120} className="min-w-0 lg:col-span-5">
         <p className="font-pixel text-sm text-subtle">
           <span className="text-accent-text">{String(index + 1).padStart(2, '0')}</span> / {project.tagline}
         </p>

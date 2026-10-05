@@ -26,11 +26,11 @@ function App() {
       <main>
         <Hero />
         <StackMarquee />
+        <Services />
         <FeaturedWork />
         <MoreProjects />
         <Templates />
         <Automation />
-        <Services />
         <About />
         <Contact />
       </main>
