@@ -23,11 +23,11 @@ export const navLinks = [
 ]
 
 export const heroStats = [
-  { value: '20+', label: 'projects on GitHub' },
-  { value: '9', label: 'live deployments' },
-  { value: 'React · TS', label: 'core stack' },
-  { value: 'EN · AR', label: 'LTR & RTL interfaces' },
-]
+  { value: '20+', label: 'Projects on GitHub', icon: 'projects' },
+  { value: '10', label: 'Live deployments', icon: 'live' },
+  { value: 'React · TS', label: 'Core stack', icon: 'stack' },
+  { value: 'EN · AR', label: 'LTR & RTL interfaces', icon: 'languages' },
+] as const
 
 export const marquee = [
   'React',

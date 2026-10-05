@@ -3,6 +3,7 @@ import { workflows, type Workflow } from '../data/projects'
 import { Container } from './ui/Container'
 import { GithubIcon } from './ui/GithubIcon'
 import { Reveal } from './ui/Reveal'
+import { TechIcon } from './ui/TechIcon'
 import { Window } from './ui/Window'
 
 // A compact strip for the n8n side of the work: present, but secondary to the web projects.
@@ -57,7 +58,14 @@ function WorkflowCard({ workflow }: { workflow: Workflow }) {
       </ol>
 
       <div className="mt-auto flex items-center justify-between gap-3 border-t border-line-strong pt-3">
-        <span className="truncate font-pixel text-xs text-muted">{workflow.tech.join(' · ')}</span>
+        <ul className="flex min-w-0 flex-wrap items-center gap-2" aria-label="Tech stack">
+          {workflow.tech.map((t) => (
+            <li key={t} title={t} className="flex items-center gap-1 font-pixel text-xs text-muted">
+              <TechIcon name={t} className="size-4" />
+              <span className="sr-only sm:not-sr-only">{t}</span>
+            </li>
+          ))}
+        </ul>
         <a
           href={workflow.repo}
           target="_blank"

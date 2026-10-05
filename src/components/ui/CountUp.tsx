@@ -12,7 +12,7 @@ export function CountUp({ value, duration = 700 }: { value: string; duration?: n
   const [n, setN] = useState(() => (target !== null && !prefersReducedMotion() ? 0 : target))
 
   useEffect(() => {
-    if (target === null || !inView) return
+    if (target === null || !inView || prefersReducedMotion()) return
     const start = performance.now()
     let raf = 0
     const tick = (now: number) => {

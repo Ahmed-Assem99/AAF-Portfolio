@@ -1,7 +1,8 @@
-import { ArrowUpRight, Check, ShoppingBag } from 'lucide-react'
+import { ArrowUpRight, ShoppingBag } from 'lucide-react'
 import { site } from '../data/site'
 import { Container } from './ui/Container'
 import { AafMark } from './ui/Logo'
+import { PixelBullet } from './ui/PixelBullet'
 import { Reveal } from './ui/Reveal'
 import { Window } from './ui/Window'
 
@@ -36,7 +37,7 @@ export function Templates() {
                 <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                   {included.map((item) => (
                     <li key={item} className="flex gap-3 text-sm leading-relaxed">
-                      <Check className="mt-0.5 size-4 shrink-0 text-accent-text" aria-hidden="true" />
+                      <PixelBullet className="mt-[5px]" />
                       {item}
                     </li>
                   ))}

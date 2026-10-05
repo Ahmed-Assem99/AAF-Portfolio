@@ -1,6 +1,6 @@
-import { Check } from 'lucide-react'
 import { featuredProjects, type Project } from '../data/projects'
 import { BrowserFrame } from './ui/BrowserFrame'
+import { PixelBullet } from './ui/PixelBullet'
 import { Container } from './ui/Container'
 import { ProjectLinks } from './ui/ProjectLinks'
 import { Reveal } from './ui/Reveal'
@@ -73,7 +73,7 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
           <ul className="mt-6 space-y-2.5">
             {project.highlights.map((h) => (
               <li key={h} className="flex gap-3 text-sm leading-relaxed">
-                <Check className="mt-0.5 size-4 shrink-0 text-accent-text" aria-hidden="true" />
+                <PixelBullet className="mt-[5px]" />
                 {h}
               </li>
             ))}
