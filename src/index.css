@@ -388,15 +388,14 @@
 }
 
 @media (hover: hover) {
-  /* Windows rest "inactive" and wake up when pointed at, like the focused window in Windows 95. */
+  /* Pointing at a window brightens its title bar, like the focused window in Windows 95. */
   .win > .titlebar {
     transition: filter 120ms steps(2, end);
-    filter: saturate(0.45) brightness(0.8);
   }
 
   .win:hover > .titlebar,
   .win:focus-within > .titlebar {
-    filter: none;
+    filter: brightness(1.2) saturate(1.15);
   }
 
   .win:hover {

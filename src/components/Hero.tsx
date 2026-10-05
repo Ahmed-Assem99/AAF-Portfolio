@@ -3,12 +3,12 @@ import type { CSSProperties } from 'react'
 import cosmos from '../assets/projects/cosmos.webp'
 import lumen from '../assets/projects/lumen.webp'
 import nutriplan from '../assets/projects/nutriplan.webp'
-import { heroStats, site } from '../data/site'
+import { site } from '../data/site'
 import { BrowserFrame } from './ui/BrowserFrame'
 import { Container } from './ui/Container'
 import { Logo } from './ui/Logo'
 import { Reveal } from './ui/Reveal'
-import { CountUp } from './ui/CountUp'
+import { SystemProperties } from './SystemProperties'
 import { Window } from './ui/Window'
 
 export function Hero() {
@@ -72,21 +72,7 @@ export function Hero() {
 
       <Container className="relative mt-20">
         <Reveal>
-          <Window title="System Properties" bodyClassName="p-3 sm:p-4">
-            <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {heroStats.map((stat) => (
-                <div key={stat.label} className="bevel-in bg-surface-2 px-4 py-4">
-                  <dt className="sr-only">{stat.label}</dt>
-                  <dd>
-                    <span className="block font-pixel text-3xl tracking-tight">
-                      <CountUp value={stat.value} />
-                    </span>
-                    <span className="mt-1 block text-sm text-muted">{stat.label}</span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Window>
+          <SystemProperties />
         </Reveal>
       </Container>
     </section>
