@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { About } from './components/About'
 import { ArcadeGutters } from './components/ArcadeGutters'
 import { Automation } from './components/Automation'
@@ -36,6 +37,7 @@ function App() {
       </main>
       <Footer />
       <MessageToast />
+      <Analytics />
     </>
   )
 }
