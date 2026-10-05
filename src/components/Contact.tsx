@@ -37,7 +37,7 @@ export function Contact() {
 
             <div className="relative">
               <p className="font-brand text-[11px] tracking-[0.28em] text-muted uppercase">
-                <span className="text-accent-text">06</span> · Contact
+                <span className="text-accent-text">07</span> · Contact
               </p>
               <h2 className="mx-auto mt-6 max-w-3xl text-4xl font-medium tracking-tight text-balance sm:text-6xl">
                 Have a project in mind? <span className="text-accent-text">Let’s build it.</span>

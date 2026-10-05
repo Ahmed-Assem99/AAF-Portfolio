@@ -8,6 +8,7 @@ import { MoreProjects } from './components/MoreProjects'
 import { Navbar } from './components/Navbar'
 import { Services } from './components/Services'
 import { StackMarquee } from './components/StackMarquee'
+import { Templates } from './components/Templates'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <StackMarquee />
         <FeaturedWork />
         <MoreProjects />
+        <Templates />
         <Automation />
         <Services />
         <About />

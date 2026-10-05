@@ -12,7 +12,7 @@ export function Automation() {
         <Reveal className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="font-brand text-[11px] tracking-[0.28em] text-muted uppercase">
-              <span className="text-accent-text">03</span> · Also on GitHub
+              <span className="text-accent-text">04</span> · Also on GitHub
             </p>
             <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-3xl">AI automation with n8n</h2>
           </div>

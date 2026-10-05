@@ -15,7 +15,7 @@ export function Services() {
     <section id="services" className="border-t border-line bg-surface/50 py-28 sm:py-36">
       <Container>
         <SectionHeading
-          index="04"
+          index="05"
           eyebrow="Services · AAF Studio"
           title={
             <>

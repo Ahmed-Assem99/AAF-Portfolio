@@ -10,11 +10,14 @@ export const site = {
   email: 'ahmedassem13@gmail.com',
   github: 'https://github.com/Ahmed-Assem99',
   githubHandle: 'Ahmed-Assem99',
+  store: 'https://ahmedassem0.gumroad.com',
+  storeLabel: 'ahmedassem0.gumroad.com',
 }
 
 export const navLinks = [
   { id: 'work', label: 'Work' },
   { id: 'projects', label: 'Projects' },
+  { id: 'templates', label: 'Templates' },
   { id: 'services', label: 'Services' },
   { id: 'about', label: 'About' },
 ]
