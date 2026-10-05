@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { Window } from './Window'
 
 interface BrowserFrameProps {
   url?: string
@@ -6,23 +7,11 @@ interface BrowserFrameProps {
   className?: string
 }
 
-// A minimal browser window used to present project screenshots.
+// Presents a project screenshot inside a window, with the site address in the title bar.
 export function BrowserFrame({ url, children, className = '' }: BrowserFrameProps) {
   return (
-    <div className={`overflow-hidden rounded-xl border border-line bg-surface shadow-card ${className}`}>
-      <div className="flex items-center gap-2 border-b border-line bg-surface-2/70 px-3 py-2">
-        <span className="flex gap-1.5" aria-hidden="true">
-          <span className="size-2.5 rounded-full bg-line-strong" />
-          <span className="size-2.5 rounded-full bg-line-strong" />
-          <span className="size-2.5 rounded-full bg-line-strong" />
-        </span>
-        {url && (
-          <span className="mx-auto truncate rounded-md bg-bg/60 px-3 py-0.5 font-mono text-[10px] text-subtle">
-            {url}
-          </span>
-        )}
-      </div>
-      {children}
-    </div>
+    <Window title={url ?? ''} className={className} bodyClassName="bevel-in mt-[3px] bg-surface-2 p-[2px]">
+      <div className="overflow-hidden">{children}</div>
+    </Window>
   )
 }

@@ -47,11 +47,7 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
           aria-hidden="true"
           className="group relative block"
         >
-          <div
-            className="absolute -inset-6 -z-10 rounded-[2rem] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-            style={{ background: 'radial-gradient(closest-side, var(--glow), transparent)' }}
-          />
-          <BrowserFrame url={host}>
+          <BrowserFrame url={`${project.title} - ${host}`}>
             <div className="overflow-hidden">
               <img
                 src={project.image}
@@ -66,7 +62,7 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
       </Reveal>
 
       <Reveal delay={120} className="lg:col-span-5">
-        <p className="font-mono text-xs text-subtle">
+        <p className="font-pixel text-sm text-subtle">
           <span className="text-accent-text">{String(index + 1).padStart(2, '0')}</span> / {project.tagline}
         </p>
         <h3 className="mt-3 text-3xl font-medium tracking-tight sm:text-4xl" dir="auto">

@@ -38,15 +38,17 @@ screenshot there, import it at the top of `projects.ts` and add an entry to `fea
 src/
 ├── data/          ← site copy and project data (edit these)
 ├── components/    ← one file per page section
-│   └── ui/        ← small shared pieces (Container, Reveal, BrowserFrame…)
+│   └── ui/        ← small shared pieces (Window, Container, Reveal, BrowserFrame…)
 ├── hooks/         ← theme toggle and active-section tracking
 └── assets/projects/
 ```
 
 ## Features
 
+- A dark Windows 95-inspired look: bevelled windows, a bottom taskbar with a Start menu and clock,
+  CRT scanlines and pixel/terminal type (Pixelify Sans, VT323); the light theme is classic silver
 - Dark and light themes, following the system on a first visit and remembering the choice
 - Scroll-reveal motion that turns off for visitors who prefer reduced motion
 - Filterable project archive, responsive down to phone width
-- Self-hosted fonts (Inter Tight, Montserrat for brand labels, JetBrains Mono), with no third-party requests
+- Self-hosted fonts (Inter Tight, Montserrat, Pixelify Sans, VT323, JetBrains Mono), with no third-party requests
 - AAF Studio logo redrawn as SVG in `src/components/ui/Logo.tsx`, colored by the theme

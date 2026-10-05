@@ -2,42 +2,69 @@
 @import "@fontsource-variable/inter-tight";
 @import "@fontsource-variable/montserrat/wght.css";
 @import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/pixelify-sans/wght.css";
+@import "@fontsource/vt323/400.css";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 /* ---------- Theme tokens ----------
-   Taken from the AAF Studio logo: ink #0b0f17, signal blue #1f6bff, cool grey ground. */
+   A dark take on the Windows 95 desktop, in the AAF Studio colours: ink #0b0f17 for the
+   desktop, bevelled steel-blue window chrome, and the logo's signal blue #1f6bff for title
+   bars and primary buttons. The light theme is the classic silver version. */
 :root {
-  --bg: #f3f4f6;
-  --surface: #ffffff;
-  --surface-2: #e8eaee;
-  --line: rgb(11 15 23 / 0.09);
-  --line-strong: rgb(11 15 23 / 0.17);
+  --bg: #d9dce2;
+  --surface: #c5c9d1;
+  --surface-2: #ffffff;
+  --line: rgb(11 15 23 / 0.16);
+  --line-strong: rgb(11 15 23 / 0.32);
   --fg: #0b0f17;
-  --muted: #4a5262;
-  --subtle: #7c8595;
+  --muted: #333a47;
+  --subtle: #565e6c;
   --accent: #1f6bff;
   --accent-fg: #ffffff;
-  --accent-text: #1557e6;
+  --accent-text: #1146b8;
   --glow: rgb(31 107 255 / 0.14);
-  --shadow: 0 1px 2px rgb(11 15 23 / 0.04), 0 12px 32px -12px rgb(11 15 23 / 0.16);
+  --shadow: 2px 2px 0 rgb(11 15 23 / 0.35);
+
+  /* Bevels: highlight on the top-left edges, shadow on the bottom-right. */
+  --bevel-hi: #ffffff;
+  --bevel-hi2: #e3e6eb;
+  --bevel-mid: #7b8392;
+  --bevel-lo: #0b0f17;
+  --title-from: #000080;
+  --title-to: #1f6bff;
+  --title-fg: #ffffff;
+  --desktop-dot: rgb(11 15 23 / 0.07);
+  --scanline: rgb(0 0 0 / 0.03);
+  --term-fg: #0b6b2f;
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
   --bg: #0b0f17;
-  --surface: #111725;
-  --surface-2: #192133;
-  --line: rgb(255 255 255 / 0.08);
-  --line-strong: rgb(255 255 255 / 0.15);
+  --surface: #161d2b;
+  --surface-2: #0d121c;
+  --line: rgb(255 255 255 / 0.1);
+  --line-strong: rgb(255 255 255 / 0.2);
   --fg: #f3f4f6;
-  --muted: #9ba4b4;
-  --subtle: #6f788a;
+  --muted: #a7b0bf;
+  --subtle: #7d879a;
   --accent: #1f6bff;
   --accent-fg: #ffffff;
-  --accent-text: #6b9dff;
+  --accent-text: #78a6ff;
   --glow: rgb(31 107 255 / 0.22);
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -16px rgb(0 0 0 / 0.75);
+  --shadow: 3px 3px 0 rgb(0 0 0 / 0.55);
+
+  --bevel-hi: #4d5a78;
+  --bevel-hi2: #2b3549;
+  --bevel-mid: #0a0e16;
+  --bevel-lo: #000000;
+  --title-from: #0a1f6b;
+  --title-to: #1f6bff;
+  --title-fg: #ffffff;
+  --desktop-dot: rgb(255 255 255 / 0.045);
+  --scanline: rgb(0 0 0 / 0.22);
+  --term-fg: #5af78e;
   color-scheme: dark;
 }
 
@@ -53,30 +80,56 @@
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
   --color-accent-text: var(--accent-text);
+  --color-term: var(--term-fg);
 
   --font-sans: "Inter Tight Variable", ui-sans-serif, system-ui, sans-serif;
   --font-brand: "Montserrat Variable", "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
+  --font-pixel: "Pixelify Sans Variable", "Pixelify Sans", ui-monospace, monospace;
+  --font-term: "VT323", ui-monospace, monospace;
 
   --shadow-card: var(--shadow);
+}
+
+/* Square corners everywhere, the way 90s chrome was drawn. Dots that use rounded-full stay round. */
+@theme {
+  --radius-xs: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
 }
 
 /* ---------- Base ---------- */
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 1.5rem;
   }
 
   body {
-    background: var(--bg);
+    background-color: var(--bg);
+    /* A faint dither pattern, like a 90s desktop wallpaper. */
+    background-image: radial-gradient(var(--desktop-dot) 1px, transparent 1px);
+    background-size: 4px 4px;
     color: var(--fg);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    transition:
-      background-color 0.3s ease,
-      color 0.3s ease;
+    /* Room for the fixed taskbar at the bottom. */
+    padding-bottom: calc(3.25rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* CRT scanlines over the whole screen. Purely visual and never blocks clicks. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    background: repeating-linear-gradient(to bottom, var(--scanline) 0 1px, transparent 1px 3px);
   }
 
   ::selection {
@@ -85,9 +138,124 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px dotted var(--accent-text);
     outline-offset: 3px;
-    border-radius: 6px;
+  }
+}
+
+/* ---------- Windows 95 kit ---------- */
+@layer components {
+  /* Raised panel: buttons, windows, the taskbar. */
+  .bevel {
+    box-shadow:
+      inset -1px -1px 0 var(--bevel-lo),
+      inset 1px 1px 0 var(--bevel-hi),
+      inset -2px -2px 0 var(--bevel-mid),
+      inset 2px 2px 0 var(--bevel-hi2);
+  }
+
+  /* Sunken field: inputs, wells, pressed buttons. */
+  .bevel-in {
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-mid),
+      inset -1px -1px 0 var(--bevel-hi),
+      inset 2px 2px 0 var(--bevel-lo),
+      inset -2px -2px 0 var(--bevel-hi2);
+  }
+
+  .win {
+    background: var(--surface);
+    padding: 3px;
+    box-shadow:
+      inset -1px -1px 0 var(--bevel-lo),
+      inset 1px 1px 0 var(--bevel-hi),
+      inset -2px -2px 0 var(--bevel-mid),
+      inset 2px 2px 0 var(--bevel-hi2),
+      var(--shadow);
+  }
+
+  .titlebar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 1.6rem;
+    padding: 0.15rem 0.2rem 0.15rem 0.45rem;
+    background: linear-gradient(90deg, var(--title-from), var(--title-to));
+    color: var(--title-fg);
+    font-family: var(--font-pixel);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .btn95 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--surface);
+    color: var(--fg);
+    font-family: var(--font-pixel);
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    box-shadow:
+      inset -1px -1px 0 var(--bevel-lo),
+      inset 1px 1px 0 var(--bevel-hi),
+      inset -2px -2px 0 var(--bevel-mid),
+      inset 2px 2px 0 var(--bevel-hi2);
+  }
+
+  .btn95:hover {
+    filter: brightness(1.08);
+  }
+
+  .btn95:active,
+  .btn95[aria-pressed="true"],
+  .btn95[aria-expanded="true"],
+  .btn95[aria-current="true"] {
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-lo),
+      inset -1px -1px 0 var(--bevel-hi),
+      inset 2px 2px 0 var(--bevel-mid),
+      inset -2px -2px 0 var(--bevel-hi2);
+  }
+
+  .btn95:active {
+    transform: translate(1px, 1px);
+  }
+
+  .btn95:focus-visible {
+    outline: 1px dotted currentColor;
+    outline-offset: -6px;
+  }
+
+  .btn95-primary {
+    background: var(--accent);
+    color: var(--accent-fg);
+    --bevel-hi: #7aa6ff;
+    --bevel-hi2: #4a86ff;
+    --bevel-mid: #0d3fa8;
+    --bevel-lo: #06205c;
+  }
+
+  /* The little _ □ × buttons in a title bar. Decorative only. */
+  .title-btn {
+    display: grid;
+    place-items: center;
+    width: 1.15rem;
+    height: 1rem;
+    background: var(--surface);
+    color: var(--fg);
+    font-family: var(--font-pixel);
+    font-size: 0.7rem;
+    line-height: 1;
+    box-shadow:
+      inset -1px -1px 0 var(--bevel-lo),
+      inset 1px 1px 0 var(--bevel-hi),
+      inset -2px -2px 0 var(--bevel-mid),
+      inset 2px 2px 0 var(--bevel-hi2);
   }
 }
 
@@ -102,7 +270,7 @@
 
 @utility bg-dots {
   background-image: radial-gradient(var(--line-strong) 1px, transparent 1px);
-  background-size: 18px 18px;
+  background-size: 8px 8px;
 }
 
 @utility text-balance {
@@ -172,6 +340,17 @@
   animation: flow 1.2s linear infinite;
 }
 
+/* A terminal-style block cursor. */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1.1s steps(1) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -186,7 +365,8 @@
   .marquee-track,
   .animate-ping-soft,
   .animate-float,
-  .animate-flow {
+  .animate-flow,
+  .animate-blink {
     animation: none;
   }
 }
