@@ -20,10 +20,10 @@ export function Templates() {
       <Container>
         <Reveal>
           <Window title="Template Store - AAF Studio" bodyClassName="p-6 sm:p-10 lg:p-14">
-            <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
               <div className="lg:col-span-7">
                 <p className="type-in flex items-center gap-2 font-pixel text-sm text-muted uppercase">
-                  <span className="bg-accent px-1.5 py-0.5 text-accent-fg">03</span>
+                  <span className="bg-accent px-1.5 py-0.5 text-accent-fg">04</span>
                   Templates
                 </p>
                 <h2 className="mt-5 text-4xl font-medium tracking-tight text-balance sm:text-5xl">

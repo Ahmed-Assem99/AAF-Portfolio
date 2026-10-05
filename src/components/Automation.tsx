@@ -14,7 +14,7 @@ export function Automation() {
         <Reveal className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="type-in flex items-center gap-2 font-pixel text-sm text-muted uppercase">
-              <span className="bg-accent px-1.5 py-0.5 text-accent-fg">04</span>
+              <span className="bg-accent px-1.5 py-0.5 text-accent-fg">05</span>
               Also on GitHub
             </p>
             <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-3xl">AI automation with n8n</h2>

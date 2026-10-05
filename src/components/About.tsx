@@ -11,7 +11,7 @@ export function About() {
       <Container>
         <SectionHeading index="06" eyebrow="About" title="The person behind the studio." />
 
-        <div className="mt-14 grid gap-14 lg:grid-cols-12">
+        <div className="mt-14 grid grid-cols-1 gap-14 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
             <p className="text-3xl leading-tight font-medium tracking-tight text-balance sm:text-4xl">
               I like building things that look good and{' '}
