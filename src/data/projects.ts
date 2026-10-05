@@ -56,6 +56,7 @@ export const featuredProjects: Project[] = [
     tech: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'Vite'],
     category: 'react',
     image: lumen,
+    live: 'https://project-ai-saa-s-landing-page-templ.vercel.app',
     repo: gh('Project-AI-SaaS-Landing-Page-Template'),
   },
   {
@@ -135,6 +136,7 @@ export const featuredProjects: Project[] = [
     tech: ['React', 'React Router', 'Tailwind CSS v4', 'Lucide'],
     category: 'react',
     image: adasa,
+    live: 'https://project15-adasa.vercel.app',
     repo: gh('Project15-Adasa'),
     rtl: true,
   },
@@ -251,6 +253,7 @@ export const moreProjects: Project[] = [
     tech: ['HTML5', 'CSS3'],
     category: 'html-css',
     image: uxreview,
+    live: 'https://project4-the-ux-review.vercel.app',
     repo: gh('Project4-The-UX-Review'),
   },
   {
@@ -290,3 +293,6 @@ export const moreProjects: Project[] = [
     repo: gh('CRUD'),
   },
 ]
+
+/** Number of projects with a live demo, shown in the hero stats. */
+export const liveDemoCount = [...featuredProjects, ...moreProjects].filter((p) => p.live).length

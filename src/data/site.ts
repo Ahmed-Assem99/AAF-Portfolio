@@ -24,7 +24,8 @@ export const navLinks = [
 
 export const heroStats = [
   { value: '20+', label: 'Projects on GitHub', icon: 'projects' },
-  { value: '10', label: 'Live deployments', icon: 'live' },
+  // The live-deployment count is filled in from the project list (see SystemProperties).
+  { value: '', label: 'Live deployments', icon: 'live' },
   { value: 'React · TS', label: 'Core stack', icon: 'stack' },
   { value: 'EN · AR', label: 'LTR & RTL interfaces', icon: 'languages' },
 ] as const
