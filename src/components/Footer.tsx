@@ -43,6 +43,11 @@ export function Footer() {
                 <GithubIcon className="size-3.5" /> GitHub
               </a>
             </li>
+            <li>
+              <a href={site.store} target="_blank" rel="noreferrer" className="text-muted transition-colors hover:text-fg">
+                Template store
+              </a>
+            </li>
           </ul>
         </nav>
       </Container>
