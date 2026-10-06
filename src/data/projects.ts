@@ -8,6 +8,7 @@ import dji from '../assets/projects/dji.webp'
 import fitcore from '../assets/projects/fitcore.webp'
 import gamearena from '../assets/projects/gamearena.webp'
 import kanban from '../assets/projects/kanban.webp'
+import keepsake from '../assets/projects/keepsake.webp'
 import lumen from '../assets/projects/lumen.webp'
 import muddabir from '../assets/projects/muddabir.webp'
 import nutriplan from '../assets/projects/nutriplan.webp'
@@ -58,6 +59,22 @@ export const featuredProjects: Project[] = [
     image: lumen,
     live: 'https://project-ai-saa-s-landing-page-templ.vercel.app',
     repo: gh('Project-AI-SaaS-Landing-Page-Template'),
+  },
+  {
+    title: 'The Keepsake Club',
+    tagline: 'Gift shop landing page',
+    description:
+      'A landing page for an Egypt-based gift shop that sells through Instagram. There is no cart or checkout: every “order via DM” button copies a ready-made message and opens the shop’s Instagram DMs.',
+    highlights: [
+      'One-tap ordering: buttons copy a pre-written DM to the clipboard and open Instagram',
+      'A playful, hand-drawn brand brought to life with Framer Motion',
+      'Pre-rendered at build time with self-hosted fonts, so the page shows before any JavaScript runs',
+    ],
+    tech: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion', 'Vite'],
+    category: 'react',
+    image: keepsake,
+    live: 'https://the-keepsake-club.vercel.app/',
+    repo: gh('TheKeepSakeClub'),
   },
   {
     title: 'Circle',
@@ -124,22 +141,6 @@ export const featuredProjects: Project[] = [
     repo: gh('Project15-Adasa'),
     rtl: true,
   },
-  {
-    title: 'Kanban',
-    tagline: 'Drag-and-drop task board',
-    description:
-      'A three-column board for To Do, In Progress and Completed, with priorities, due dates and descriptions. Tasks survive a refresh.',
-    highlights: [
-      'Drag and drop between columns with mouse and touch',
-      'Inline validation: required title, no due dates in the past',
-      'Written in TypeScript and persisted in localStorage',
-    ],
-    tech: ['TypeScript', 'Tailwind CSS v4', 'HTML5'],
-    category: 'javascript',
-    image: kanban,
-    live: 'https://project13-kanban-task-manager.vercel.app/',
-    repo: gh('Project13-KanbanTaskManager'),
-  },
 ]
 
 export interface Workflow {
@@ -175,6 +176,22 @@ export const workflows: Workflow[] = [
 ]
 
 export const moreProjects: Project[] = [
+  {
+    title: 'Kanban',
+    tagline: 'Drag-and-drop task board',
+    description:
+      'A three-column board for To Do, In Progress and Completed, with priorities, due dates and descriptions. Tasks survive a refresh.',
+    highlights: [
+      'Drag and drop between columns with mouse and touch',
+      'Inline validation: required title, no due dates in the past',
+      'Written in TypeScript and persisted in localStorage',
+    ],
+    tech: ['TypeScript', 'Tailwind CSS v4', 'HTML5'],
+    category: 'javascript',
+    image: kanban,
+    live: 'https://project13-kanban-task-manager.vercel.app/',
+    repo: gh('Project13-KanbanTaskManager'),
+  },
   {
     title: 'QuizMaster',
     tagline: 'Trivia game',
@@ -298,6 +315,7 @@ export const moreProjects: Project[] = [
 
 // Every project for the archive grid, newest first. Featured projects are included too.
 const archiveOrder = [
+  'The Keepsake Club',
   'Lumen',
   'Circle',
   'Adasa · عدسة',
