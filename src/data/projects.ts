@@ -14,6 +14,7 @@ import muddabir from '../assets/projects/muddabir.webp'
 import nutriplan from '../assets/projects/nutriplan.webp'
 import portfolio from '../assets/projects/portfolio.webp'
 import quiz from '../assets/projects/quiz.webp'
+import techmart from '../assets/projects/techmart.webp'
 import uxreview from '../assets/projects/uxreview.webp'
 
 const gh = (repo: string) => `https://github.com/Ahmed-Assem99/${repo}`
@@ -61,6 +62,21 @@ export const featuredProjects: Project[] = [
     repo: gh('Project-AI-SaaS-Landing-Page-Template'),
   },
   {
+    title: 'TechMart',
+    tagline: 'E-commerce store',
+    description:
+      'A full online store built with Next.js: browse products, categories and brands, sign in, fill a cart and pay through a hosted checkout, then follow your orders. Product data comes from a real e-commerce REST API.',
+    highlights: [
+      'Sign-in with NextAuth, plus route protection that keeps the cart and orders behind login',
+      'Instant quantity buttons: the cart updates on click and only the final count is sent to the API',
+      'Validated forms with React Hook Form + Zod, animated with Framer Motion',
+    ],
+    tech: ['Next.js 16', 'TypeScript', 'NextAuth', 'Tailwind CSS v4', 'shadcn/ui', 'Zod', 'Framer Motion'],
+    category: 'react',
+    image: techmart,
+    repo: gh('Project17-TechMart'),
+  },
+  {
     title: 'The Keepsake Club',
     tagline: 'Gift shop landing page',
     description:
@@ -73,7 +89,7 @@ export const featuredProjects: Project[] = [
     tech: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion', 'Vite'],
     category: 'react',
     image: keepsake,
-    live: 'https://the-keepsake-club.vercel.app/',
+    live: 'https://the-keep-sake-club.vercel.app',
     repo: gh('TheKeepSakeClub'),
   },
   {
@@ -107,22 +123,6 @@ export const featuredProjects: Project[] = [
     image: nutriplan,
     live: 'https://project12-nutri-plan.vercel.app/',
     repo: gh('Project12-NutriPlan'),
-  },
-  {
-    title: 'COSMOS',
-    tagline: 'Real-time space dashboard',
-    description:
-      'NASA’s Astronomy Picture of the Day, upcoming rocket launches and live planetary data in one dashboard, with an interactive explorer for all eight planets.',
-    highlights: [
-      'Three public APIs (NASA APOD, The Space Devs, Solar System OpenData)',
-      'Browse any day’s APOD with a date picker and graceful error states',
-      'Planet explorer with physical data, discovery info and quick facts',
-    ],
-    tech: ['TypeScript', 'Tailwind CSS', 'REST APIs'],
-    category: 'javascript',
-    image: cosmos,
-    live: 'https://project11-cosmos-space-dashboard.vercel.app/',
-    repo: gh('Project11-COSMOS-SpaceDashboard'),
   },
   {
     title: 'Adasa · عدسة',
@@ -176,6 +176,22 @@ export const workflows: Workflow[] = [
 ]
 
 export const moreProjects: Project[] = [
+  {
+    title: 'COSMOS',
+    tagline: 'Real-time space dashboard',
+    description:
+      'NASA’s Astronomy Picture of the Day, upcoming rocket launches and live planetary data in one dashboard, with an interactive explorer for all eight planets.',
+    highlights: [
+      'Three public APIs (NASA APOD, The Space Devs, Solar System OpenData)',
+      'Browse any day’s APOD with a date picker and graceful error states',
+      'Planet explorer with physical data, discovery info and quick facts',
+    ],
+    tech: ['TypeScript', 'Tailwind CSS', 'REST APIs'],
+    category: 'javascript',
+    image: cosmos,
+    live: 'https://project11-cosmos-space-dashboard.vercel.app/',
+    repo: gh('Project11-COSMOS-SpaceDashboard'),
+  },
   {
     title: 'Kanban',
     tagline: 'Drag-and-drop task board',
@@ -315,6 +331,7 @@ export const moreProjects: Project[] = [
 
 // Every project for the archive grid, newest first. Featured projects are included too.
 const archiveOrder = [
+  'TechMart',
   'The Keepsake Club',
   'Lumen',
   'Circle',
