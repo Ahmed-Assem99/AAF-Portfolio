@@ -1,8 +1,8 @@
 import { ArrowDown, ArrowRight, MapPin } from 'lucide-react'
 import type { CSSProperties } from 'react'
-import cosmos from '../assets/projects/cosmos.webp'
+import ibdaa from '../assets/projects/ibdaa.webp'
 import lumen from '../assets/projects/lumen.webp'
-import nutriplan from '../assets/projects/nutriplan.webp'
+import techmart from '../assets/projects/techmart.webp'
 import { site } from '../data/site'
 import { BrowserFrame } from './ui/BrowserFrame'
 import { Container } from './ui/Container'
@@ -84,16 +84,16 @@ const buildLog = ['C:\\> npm run build', 'âœ“ type-checked with TypeScript', 'âœ
 function HeroCollage() {
   return (
     <div className="relative mx-auto aspect-[5/4] w-full max-w-[520px]">
-      <BrowserFrame url="COSMOS.exe" className="absolute top-0 right-0 w-[78%]">
-        <img src={cosmos} alt="" className="glitch aspect-[16/10] w-full object-cover object-top" />
+      <BrowserFrame url="Lumen.exe" className="absolute top-0 right-0 w-[78%]">
+        <img src={lumen} alt="" className="glitch aspect-[16/10] w-full object-cover object-top" />
       </BrowserFrame>
-      <BrowserFrame url="NutriPlan.exe" className="absolute top-[22%] left-0 w-[78%]">
-        <img src={nutriplan} alt="" className="glitch aspect-[16/10] w-full object-cover object-top" />
+      <BrowserFrame url="TechMart.exe" className="absolute top-[22%] left-0 w-[78%]">
+        <img src={techmart} alt="" className="glitch aspect-[16/10] w-full object-cover object-top" />
       </BrowserFrame>
-      <BrowserFrame url="Lumen.exe" className="absolute right-[6%] bottom-0 w-[74%]">
+      <BrowserFrame url="Ibdaa.exe" className="absolute right-[6%] bottom-0 w-[74%]">
         <img
-          src={lumen}
-          alt="Screenshots of COSMOS, NutriPlan and Lumen, three projects from this portfolio"
+          src={ibdaa}
+          alt="Screenshots of Lumen, TechMart and Ibdaa Albashq, three projects from this portfolio"
           className="glitch aspect-[16/10] w-full object-cover object-top"
         />
       </BrowserFrame>
