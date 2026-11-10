@@ -7,7 +7,7 @@ import { Window } from './ui/Window'
 
 export function About() {
   return (
-    <section id="about" className="py-28 sm:py-36">
+    <section id="about" className="py-20 sm:py-24">
       <Container>
         <SectionHeading index="06" eyebrow="About" title="The person behind the studio." />
 
@@ -40,7 +40,7 @@ export function About() {
           </Reveal>
         </div>
 
-        <Reveal className="mt-20">
+        <Reveal className="mt-14">
           <Window title="Skills.txt" bodyClassName="grid gap-3 p-3 sm:grid-cols-2 sm:p-4 lg:grid-cols-4">
             {skills.map((group) => (
               <div key={group.group} className="bevel-in bg-surface-2 p-5">

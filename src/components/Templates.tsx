@@ -16,7 +16,7 @@ const included = [
 // Promotes the template store on Gumroad. Purchases happen on Gumroad itself.
 export function Templates() {
   return (
-    <section id="templates" className="py-28 sm:py-36">
+    <section id="templates" className="py-20 sm:py-24">
       <Container>
         <Reveal>
           <Window title="Template Store - AAF Studio" bodyClassName="p-6 sm:p-10 lg:p-14">

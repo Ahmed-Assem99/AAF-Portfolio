@@ -24,6 +24,11 @@ export function useInView(ref: RefObject<Element | null>, rootMargin = '0px 0px 
   return inView
 }
 
+/** True when motion should be skipped: the system setting, or the taskbar's pause button. */
 export function prefersReducedMotion() {
-  return typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (typeof window === 'undefined') return false
+  return (
+    document.documentElement.dataset.motion === 'off' ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  )
 }

@@ -32,6 +32,7 @@ export const heroStats = [
 
 export const marquee = [
   'React',
+  'Next.js',
   'TypeScript',
   'Tailwind CSS',
   'Node.js',
@@ -80,7 +81,7 @@ export const process = [
 export const skills = [
   {
     group: 'Frontend',
-    items: ['React', 'TypeScript', 'JavaScript (ES6+)', 'Tailwind CSS', 'Bootstrap', 'HTML5 & CSS3', 'React Router', 'React Hook Form + Zod'],
+    items: ['React', 'Next.js', 'TypeScript', 'JavaScript (ES6+)', 'Tailwind CSS', 'Bootstrap', 'HTML5 & CSS3', 'React Router', 'React Hook Form + Zod'],
   },
   {
     group: 'Backend',
@@ -92,6 +93,6 @@ export const skills = [
   },
   {
     group: 'Tooling',
-    items: ['Git & GitHub', 'Vite', 'Vercel', 'Docker', 'ESLint', 'Notion'],
+    items: ['Git & GitHub', 'Vite', 'Vercel', 'Docker', 'ESLint', 'Vitest', 'Notion'],
   },
 ]

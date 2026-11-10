@@ -26,7 +26,8 @@ export function CountUp({ value, duration = 700 }: { value: string; duration?: n
 
   if (target === null) return <span ref={ref}>{value}</span>
   return (
-    <span ref={ref} aria-label={value}>
+    <span ref={ref}>
+      <span className="sr-only">{value}</span>
       <span aria-hidden="true">
         {n}
         {suffix}

@@ -16,15 +16,12 @@ import { Templates } from './components/Templates'
 function App() {
   return (
     <>
-      <a
-        href="#work"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-fg"
-      >
+      <a href="#main" className="btn95 btn95-primary sr-only px-4 py-3 text-sm focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60]">
         Skip to content
       </a>
       <Navbar />
       <ArcadeGutters />
-      <main>
+      <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
         <StackMarquee />
         <Services />

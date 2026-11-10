@@ -1,8 +1,8 @@
 import { ArrowDown, ArrowRight, MapPin } from 'lucide-react'
 import type { CSSProperties } from 'react'
-import cosmos from '../assets/projects/cosmos.webp'
+import ibdaa from '../assets/projects/ibdaa.webp'
 import lumen from '../assets/projects/lumen.webp'
-import nutriplan from '../assets/projects/nutriplan.webp'
+import techmart from '../assets/projects/techmart.webp'
 import { site } from '../data/site'
 import { BrowserFrame } from './ui/BrowserFrame'
 import { Container } from './ui/Container'
@@ -13,7 +13,7 @@ import { Window } from './ui/Window'
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-8 pb-20 sm:pt-10">
+    <section id="top" className="relative overflow-hidden pt-8 pb-16 sm:pt-10">
       <Container className="relative">
         <Reveal className="flex flex-wrap items-center justify-between gap-4">
           <a href="#top" aria-label="AAF Studio, back to top">
@@ -29,7 +29,7 @@ export function Hero() {
         </Reveal>
       </Container>
 
-      <Container className="relative mt-16 grid grid-cols-1 items-center gap-16 sm:mt-24 lg:grid-cols-12">
+      <Container className="relative mt-14 grid grid-cols-1 items-center gap-16 sm:mt-20 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <Reveal>
             <p className="font-term text-xl text-term">C:\AAF_STUDIO&gt; whoami</p>
@@ -45,8 +45,8 @@ export function Hero() {
           <Reveal delay={160}>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted">
               I’m {site.shortName}, a full stack developer and the founder of{' '}
-              <span className="text-fg">{site.brand}</span>. I build fast, responsive web apps and websites with React
-              and TypeScript, backed by Node and Python APIs.
+              <span className="text-fg">{site.brand}</span>. I build fast, responsive web apps and websites with React,
+              Next.js and TypeScript, backed by Node and Python APIs.
             </p>
           </Reveal>
 
@@ -84,16 +84,16 @@ const buildLog = ['C:\\> npm run build', '✓ type-checked with TypeScript', '�
 function HeroCollage() {
   return (
     <div className="relative mx-auto aspect-[5/4] w-full max-w-[520px]">
-      <BrowserFrame url="COSMOS.exe" className="absolute top-0 right-0 w-[78%]">
-        <img src={cosmos} alt="" className="glitch aspect-[16/10] w-full object-cover object-top" />
+      <BrowserFrame url="Lumen.exe" className="absolute top-0 right-0 w-[78%]">
+        <img src={lumen} alt="" className="glitch aspect-[16/10] w-full object-cover object-top" />
       </BrowserFrame>
-      <BrowserFrame url="NutriPlan.exe" className="absolute top-[22%] left-0 w-[78%]">
-        <img src={nutriplan} alt="" className="glitch aspect-[16/10] w-full object-cover object-top" />
+      <BrowserFrame url="TechMart.exe" className="absolute top-[22%] left-0 w-[78%]">
+        <img src={techmart} alt="" className="glitch aspect-[16/10] w-full object-cover object-top" />
       </BrowserFrame>
-      <BrowserFrame url="Lumen.exe" className="absolute right-[6%] bottom-0 w-[74%]">
+      <BrowserFrame url="Ibdaa.exe" className="absolute right-[6%] bottom-0 w-[74%]">
         <img
-          src={lumen}
-          alt="Screenshots of COSMOS, NutriPlan and Lumen, three projects from this portfolio"
+          src={ibdaa}
+          alt="Screenshots of Lumen, TechMart and Ibdaa Albashq, three projects from this portfolio"
           className="glitch aspect-[16/10] w-full object-cover object-top"
         />
       </BrowserFrame>

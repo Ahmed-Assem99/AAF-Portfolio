@@ -41,7 +41,7 @@ export function Contact() {
                 Send email
               </a>
               <button type="button" onClick={copyEmail} className="btn95 w-full px-6 py-4 text-base sm:w-auto">
-                {copied ? <Check className="size-4 text-emerald-500" /> : <Copy className="size-4" />}
+                {copied ? <Check className="size-4 text-emerald-700 dark:text-emerald-400" /> : <Copy className="size-4" />}
                 <span aria-live="polite">{copied ? 'Copied!' : 'Copy email'}</span>
               </button>
             </div>

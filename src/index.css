@@ -19,7 +19,7 @@
   --line-strong: rgb(11 15 23 / 0.32);
   --fg: #0b0f17;
   --muted: #333a47;
-  --subtle: #565e6c;
+  --subtle: #434a57;
   --accent: #1f6bff;
   --accent-fg: #ffffff;
   --accent-text: #1146b8;
@@ -37,6 +37,7 @@
   --desktop-dot: rgb(11 15 23 / 0.07);
   --scanline: rgb(0 0 0 / 0.03);
   --term-fg: #0b6b2f;
+  --focus: #0b0f17;
   color-scheme: light;
 }
 
@@ -65,6 +66,7 @@
   --desktop-dot: rgb(255 255 255 / 0.045);
   --scanline: rgb(0 0 0 / 0.22);
   --term-fg: #5af78e;
+  --focus: #ffffff;
   color-scheme: dark;
 }
 
@@ -137,9 +139,15 @@
     color: var(--accent-fg);
   }
 
+  /* A thick, high-contrast focus ring for keyboard users. */
   :focus-visible {
-    outline: 2px dotted var(--accent-text);
-    outline-offset: 3px;
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  /* Scrolling is locked while a dialog is open. */
+  html:has(dialog[open]) {
+    overflow: hidden;
   }
 }
 
@@ -222,13 +230,36 @@
       inset -2px -2px 0 var(--bevel-hi2);
   }
 
+  /* A pressed toggle or the current page also turns lighter and bold, so the state
+     does not depend on the bevel alone. */
+  .btn95[aria-pressed="true"],
+  .btn95[aria-current="true"] {
+    background-color: var(--surface-2);
+    font-weight: 700;
+  }
+
   .btn95:active {
     transform: translate(1px, 1px);
   }
 
+  /* The classic dotted focus rectangle inside the button, plus the page's outer ring. */
   .btn95:focus-visible {
-    outline: 1px dotted currentColor;
-    outline-offset: -6px;
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+    background-image:
+      linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor),
+      linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor);
+    background-size:
+      calc(100% - 10px) 1px,
+      calc(100% - 10px) 1px,
+      1px calc(100% - 10px),
+      1px calc(100% - 10px);
+    background-position:
+      5px 5px,
+      5px calc(100% - 5px),
+      5px 5px,
+      calc(100% - 5px) 5px;
+    background-repeat: no-repeat;
   }
 
   .btn95-primary {
@@ -583,6 +614,41 @@ label[for] {
   }
 }
 
+/* The taskbar's pause button does the same as the system's reduced-motion setting. */
+:root[data-motion="off"] {
+    scroll-behavior: auto;
+  }
+
+:root[data-motion="off"] .reveal,
+:root[data-motion="off"] .reveal.is-visible,
+:root[data-motion="off"] .reveal.is-visible .type-in {
+    opacity: 1;
+    animation: none;
+  }
+
+:root[data-motion="off"] .win,
+:root[data-motion="off"] .win:hover {
+    transform: none;
+  }
+
+:root[data-motion="off"] .win:hover img.glitch {
+    animation: none;
+  }
+
+:root[data-motion="off"] .type-line,
+:root[data-motion="off"] .is-running .type-line {
+    clip-path: none;
+    animation: none;
+  }
+
+:root[data-motion="off"] .marquee-track,
+:root[data-motion="off"] .animate-ping-soft,
+:root[data-motion="off"] .animate-float,
+:root[data-motion="off"] .animate-flow,
+:root[data-motion="off"] .animate-blink {
+    animation: none;
+  }
+
 /* ---------- Message notification ---------- */
 .toast,
 .toast-tab {
@@ -635,4 +701,93 @@ label[for] {
   .toast[data-shown="true"] {
     animation: none;
   }
+}
+
+/* ---------- Shut Down screen ---------- */
+dialog.shutdown {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  place-items: center;
+  background: linear-gradient(160deg, var(--title-from), var(--title-to));
+  color: #fff;
+  /* The screen is always dark, whatever the theme. */
+  --focus: #ffffff;
+}
+
+dialog.shutdown[open] {
+  display: grid;
+}
+
+dialog.shutdown[data-phase="off"] {
+  background: #000;
+  cursor: pointer;
+}
+
+dialog.shutdown::backdrop {
+  background: #000;
+}
+
+/* ---------- Projects folder ---------- */
+.folder-item {
+  cursor: inherit;
+}
+
+/* The label highlights like a selected icon on the desktop. */
+.folder-item:hover .folder-label,
+.folder-item:focus-visible .folder-label {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.folder-item:focus-visible {
+  outline: 2px dotted var(--focus);
+  outline-offset: 1px;
+}
+
+/* ---------- Project window (modal dialog) ---------- */
+dialog.project-dialog {
+  width: min(58rem, calc(100vw - 1.25rem));
+  max-width: none;
+  max-height: calc(100dvh - 4.5rem);
+  margin: auto;
+  overflow-y: auto;
+  border: 0;
+  color: var(--fg);
+}
+
+dialog.project-dialog[open] {
+  animation:
+    crt-paint 240ms steps(8, end) backwards,
+    crt-flicker 240ms linear backwards;
+}
+
+dialog.project-dialog::backdrop {
+  background-color: rgb(11 15 23 / 0.6);
+  background-image: radial-gradient(rgb(255 255 255 / 0.12) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* Title-bar buttons that really do something are big enough to hit easily. */
+.title-btn-lg {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  dialog.project-dialog[open] {
+    animation: none;
+  }
+}
+
+:root[data-motion="off"] dialog.project-dialog[open] {
+  animation: none;
 }

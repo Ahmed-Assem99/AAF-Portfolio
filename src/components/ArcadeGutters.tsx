@@ -93,7 +93,8 @@ export function ArcadeGutters() {
   useEffect(() => {
     const canvases = [leftRef.current, rightRef.current]
     if (canvases.some((c) => !c)) return
-    const still = prefersReducedMotion()
+    // Frozen when motion is reduced or paused: the scene is drawn once and only reacts to hovers.
+    let still = prefersReducedMotion()
     const shared: Shared = { score: 0, hi: readHi() }
 
     // One game per side; they share the score.
@@ -282,11 +283,22 @@ export function ArcadeGutters() {
       return h
     })
 
+    // Follow the theme switch and the taskbar's pause button.
     const themeObserver = new MutationObserver(() => {
       colors = themeColors()
-      if (still) games.forEach((g) => draw(g, performance.now()))
+      const nowStill = prefersReducedMotion()
+      if (nowStill !== still) {
+        still = nowStill
+        cancelAnimationFrame(raf)
+        last = 0
+        if (!still) raf = requestAnimationFrame(loop)
+      }
+      if (still && visible) games.forEach((g) => draw(g, performance.now()))
     })
-    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme', 'data-motion'],
+    })
 
     const onResize = () => {
       layout()

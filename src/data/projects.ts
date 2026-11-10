@@ -6,6 +6,8 @@ import cosmos from '../assets/projects/cosmos.webp'
 import dinner from '../assets/projects/dinner.webp'
 import dji from '../assets/projects/dji.webp'
 import fitcore from '../assets/projects/fitcore.webp'
+import ibdaa from '../assets/projects/ibdaa.webp'
+import ibdaaAr from '../assets/projects/ibdaa-ar.webp'
 import gamearena from '../assets/projects/gamearena.webp'
 import kanban from '../assets/projects/kanban.webp'
 import keepsake from '../assets/projects/keepsake.webp'
@@ -14,6 +16,7 @@ import muddabir from '../assets/projects/muddabir.webp'
 import nutriplan from '../assets/projects/nutriplan.webp'
 import portfolio from '../assets/projects/portfolio.webp'
 import quiz from '../assets/projects/quiz.webp'
+import techmart from '../assets/projects/techmart.webp'
 import uxreview from '../assets/projects/uxreview.webp'
 
 const gh = (repo: string) => `https://github.com/Ahmed-Assem99/${repo}`
@@ -29,6 +32,8 @@ export interface Project {
   repo: string
   live?: string
   image?: string
+  /** A second screenshot, shown beside the first when the project is the spotlight. */
+  altImage?: { src: string; label: string; lang?: string }
   /** Shown instead of a screenshot for projects without a UI. */
   preview?: string[]
   highlights?: string[]
@@ -44,6 +49,40 @@ export const categories: { id: Category | 'all'; label: string }[] = [
 ]
 
 export const featuredProjects: Project[] = [
+  {
+    title: 'Ibdaa Albashq',
+    tagline: 'Bilingual corporate website',
+    description:
+      'A multi-page company website for an Iraqi general contractor working in power transmission, solar, oil & gas and telecom. Every page exists in English and Arabic, with project pages, galleries and a validated contact form.',
+    highlights: [
+      'Full English and Arabic (RTL) versions, with a switch that opens the same page in the other language',
+      'Project pages, filters and sitemap entries are generated from typed content files',
+      'A test fails if the Arabic content falls out of sync with the English',
+    ],
+    tech: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'React Router', 'TanStack Query', 'Motion', 'Vitest'],
+    category: 'react',
+    image: ibdaa,
+    altImage: { src: ibdaaAr, label: 'العربية', lang: 'ar' },
+    live: 'https://ibdaa-albashk.vercel.app/',
+    repo: gh('ibdaa-albashk'),
+    rtl: true,
+  },
+  {
+    title: 'TechMart',
+    tagline: 'E-commerce store',
+    description:
+      'A full online store built with Next.js: browse products, categories and brands, sign in, fill a cart and pay through a hosted checkout, then follow your orders. Product data comes from a real e-commerce REST API.',
+    highlights: [
+      'Sign-in with NextAuth, plus route protection that keeps the cart and orders behind login',
+      'Instant quantity buttons: the cart updates on click and only the final count is sent to the API',
+      'Validated forms with React Hook Form + Zod, animated with Framer Motion',
+    ],
+    tech: ['Next.js 16', 'TypeScript', 'NextAuth', 'Tailwind CSS v4', 'shadcn/ui', 'Zod', 'Framer Motion'],
+    category: 'react',
+    image: techmart,
+    live: 'https://project17-tech-mart-qf9g.vercel.app',
+    repo: gh('Project17-TechMart'),
+  },
   {
     title: 'Lumen',
     tagline: 'AI SaaS landing page template',
@@ -73,7 +112,7 @@ export const featuredProjects: Project[] = [
     tech: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion', 'Vite'],
     category: 'react',
     image: keepsake,
-    live: 'https://the-keepsake-club.vercel.app/',
+    live: 'https://the-keep-sake-club.vercel.app',
     repo: gh('TheKeepSakeClub'),
   },
   {
@@ -107,39 +146,6 @@ export const featuredProjects: Project[] = [
     image: nutriplan,
     live: 'https://project12-nutri-plan.vercel.app/',
     repo: gh('Project12-NutriPlan'),
-  },
-  {
-    title: 'COSMOS',
-    tagline: 'Real-time space dashboard',
-    description:
-      'NASA’s Astronomy Picture of the Day, upcoming rocket launches and live planetary data in one dashboard, with an interactive explorer for all eight planets.',
-    highlights: [
-      'Three public APIs (NASA APOD, The Space Devs, Solar System OpenData)',
-      'Browse any day’s APOD with a date picker and graceful error states',
-      'Planet explorer with physical data, discovery info and quick facts',
-    ],
-    tech: ['TypeScript', 'Tailwind CSS', 'REST APIs'],
-    category: 'javascript',
-    image: cosmos,
-    live: 'https://project11-cosmos-space-dashboard.vercel.app/',
-    repo: gh('Project11-COSMOS-SpaceDashboard'),
-  },
-  {
-    title: 'Adasa · عدسة',
-    tagline: 'Arabic photography blog',
-    description:
-      'A right-to-left Arabic blog for photographers, with a home page, post listings, article pages with a sidebar, author profiles and an about page.',
-    highlights: [
-      'Fully RTL layout and typography',
-      'Multi-page routing with shared layouts',
-      'Content driven from a JSON posts file',
-    ],
-    tech: ['React', 'React Router', 'Tailwind CSS v4', 'Lucide'],
-    category: 'react',
-    image: adasa,
-    live: 'https://project15-adasa.vercel.app',
-    repo: gh('Project15-Adasa'),
-    rtl: true,
   },
 ]
 
@@ -176,6 +182,39 @@ export const workflows: Workflow[] = [
 ]
 
 export const moreProjects: Project[] = [
+  {
+    title: 'Adasa · عدسة',
+    tagline: 'Arabic photography blog',
+    description:
+      'A right-to-left Arabic blog for photographers, with a home page, post listings, article pages with a sidebar, author profiles and an about page.',
+    highlights: [
+      'Fully RTL layout and typography',
+      'Multi-page routing with shared layouts',
+      'Content driven from a JSON posts file',
+    ],
+    tech: ['React', 'React Router', 'Tailwind CSS v4', 'Lucide'],
+    category: 'react',
+    image: adasa,
+    live: 'https://project15-adasa.vercel.app',
+    repo: gh('Project15-Adasa'),
+    rtl: true,
+  },
+  {
+    title: 'COSMOS',
+    tagline: 'Real-time space dashboard',
+    description:
+      'NASA’s Astronomy Picture of the Day, upcoming rocket launches and live planetary data in one dashboard, with an interactive explorer for all eight planets.',
+    highlights: [
+      'Three public APIs (NASA APOD, The Space Devs, Solar System OpenData)',
+      'Browse any day’s APOD with a date picker and graceful error states',
+      'Planet explorer with physical data, discovery info and quick facts',
+    ],
+    tech: ['TypeScript', 'Tailwind CSS', 'REST APIs'],
+    category: 'javascript',
+    image: cosmos,
+    live: 'https://project11-cosmos-space-dashboard.vercel.app/',
+    repo: gh('Project11-COSMOS-SpaceDashboard'),
+  },
   {
     title: 'Kanban',
     tagline: 'Drag-and-drop task board',
@@ -315,6 +354,8 @@ export const moreProjects: Project[] = [
 
 // Every project for the archive grid, newest first. Featured projects are included too.
 const archiveOrder = [
+  'Ibdaa Albashq',
+  'TechMart',
   'The Keepsake Club',
   'Lumen',
   'Circle',

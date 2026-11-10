@@ -13,7 +13,7 @@ const icons: Record<(typeof services)[number]['icon'], LucideIcon> = {
 
 export function Services() {
   return (
-    <section id="services" className="py-28 sm:py-36">
+    <section id="services" className="py-20 sm:py-24">
       <Container>
         <SectionHeading
           index="01"
@@ -54,7 +54,7 @@ export function Services() {
           })}
         </div>
 
-        <Reveal className="mt-20">
+        <Reveal className="mt-14">
           <h3 className="font-pixel text-sm text-muted uppercase">How a project runs</h3>
           <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((item) => (

@@ -36,7 +36,9 @@ export function MessageToast() {
   // Show after a few seconds or once the visitor scrolls past the hero, whichever comes first.
   useEffect(() => {
     if (state !== 'waiting') return
-    const show = () => setState((s) => (s === 'waiting' ? 'open' : s))
+    // On phones the full window would cover a quarter of the screen, so it starts as the small tab.
+    const compact = window.matchMedia('(max-width: 639px)').matches
+    const show = () => setState((s) => (s === 'waiting' ? (compact ? 'minimized' : 'open') : s))
     const timer = setTimeout(show, SHOW_AFTER_MS)
     const onScroll = () => window.scrollY > SHOW_AFTER_SCROLL && show()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -85,11 +87,11 @@ export function MessageToast() {
               type="button"
               onClick={() => setState('minimized')}
               aria-label="Minimize message"
-              className="title-btn cursor-pointer"
+              className="title-btn title-btn-lg"
             >
               _
             </button>
-            <button type="button" onClick={close} aria-label="Close message" className="title-btn ml-0.5 cursor-pointer">
+            <button type="button" onClick={close} aria-label="Close message" className="title-btn title-btn-lg ml-0.5">
               ×
             </button>
           </span>
@@ -113,7 +115,7 @@ export function MessageToast() {
                 Send email
               </a>
               <button type="button" onClick={copy} className="btn95 px-3 py-2 text-sm">
-                {copied ? <Check className="size-3.5 text-emerald-500" /> : <Copy className="size-3.5" />}
+                {copied ? <Check className="size-3.5 text-emerald-700 dark:text-emerald-400" /> : <Copy className="size-3.5" />}
                 <span aria-live="polite">{copied ? 'Copied!' : 'Copy'}</span>
               </button>
             </div>
