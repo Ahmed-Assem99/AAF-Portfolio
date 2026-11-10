@@ -7,6 +7,7 @@ import dinner from '../assets/projects/dinner.webp'
 import dji from '../assets/projects/dji.webp'
 import fitcore from '../assets/projects/fitcore.webp'
 import ibdaa from '../assets/projects/ibdaa.webp'
+import ibdaaAr from '../assets/projects/ibdaa-ar.webp'
 import gamearena from '../assets/projects/gamearena.webp'
 import kanban from '../assets/projects/kanban.webp'
 import keepsake from '../assets/projects/keepsake.webp'
@@ -31,6 +32,8 @@ export interface Project {
   repo: string
   live?: string
   image?: string
+  /** A second screenshot, shown beside the first when the project is the spotlight. */
+  altImage?: { src: string; label: string; lang?: string }
   /** Shown instead of a screenshot for projects without a UI. */
   preview?: string[]
   highlights?: string[]
@@ -59,6 +62,7 @@ export const featuredProjects: Project[] = [
     tech: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'React Router', 'TanStack Query', 'Motion', 'Vitest'],
     category: 'react',
     image: ibdaa,
+    altImage: { src: ibdaaAr, label: 'العربية', lang: 'ar' },
     live: 'https://ibdaa-albashk.vercel.app/',
     repo: gh('ibdaa-albashk'),
     rtl: true,

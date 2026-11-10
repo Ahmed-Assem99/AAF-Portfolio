@@ -53,6 +53,13 @@ src/
 - Elements "boot up" as they scroll into view (CRT paint plus a quick terminal inside each window),
   windows light up and lift on hover, and a "New Message" notification eases in at the bottom right
 - Scroll-reveal motion that turns off for visitors who prefer reduced motion
-- Filterable project archive, responsive down to phone width
+- The project archive is a "My Projects" folder window: a filterable grid of thumbnails, each opening
+  the project's details in its own window
+- The first featured project is a spotlight with two cascading screenshots (English and Arabic)
+- Start menu with a "Shut Down" screen, usable with the arrow keys
+- Accessibility: a pause button in the taskbar stops every animation, visible focus rings, a skip
+  link, modal windows that keep and return keyboard focus, and text contrast of at least 4.5:1 in
+  both themes
+- Responsive down to phone width
 - Self-hosted fonts (Inter Tight, Montserrat, Pixelify Sans, VT323, JetBrains Mono), with no third-party requests
 - AAF Studio logo redrawn as SVG in `src/components/ui/Logo.tsx`, colored by the theme

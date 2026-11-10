@@ -13,7 +13,7 @@ import { Window } from './ui/Window'
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-8 pb-20 sm:pt-10">
+    <section id="top" className="relative overflow-hidden pt-8 pb-16 sm:pt-10">
       <Container className="relative">
         <Reveal className="flex flex-wrap items-center justify-between gap-4">
           <a href="#top" aria-label="AAF Studio, back to top">
@@ -29,7 +29,7 @@ export function Hero() {
         </Reveal>
       </Container>
 
-      <Container className="relative mt-16 grid grid-cols-1 items-center gap-16 sm:mt-24 lg:grid-cols-12">
+      <Container className="relative mt-14 grid grid-cols-1 items-center gap-16 sm:mt-20 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <Reveal>
             <p className="font-term text-xl text-term">C:\AAF_STUDIO&gt; whoami</p>
@@ -45,8 +45,8 @@ export function Hero() {
           <Reveal delay={160}>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted">
               I’m {site.shortName}, a full stack developer and the founder of{' '}
-              <span className="text-fg">{site.brand}</span>. I build fast, responsive web apps and websites with React
-              and TypeScript, backed by Node and Python APIs.
+              <span className="text-fg">{site.brand}</span>. I build fast, responsive web apps and websites with React,
+              Next.js and TypeScript, backed by Node and Python APIs.
             </p>
           </Reveal>
 
