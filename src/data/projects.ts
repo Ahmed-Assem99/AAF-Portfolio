@@ -6,6 +6,7 @@ import cosmos from '../assets/projects/cosmos.webp'
 import dinner from '../assets/projects/dinner.webp'
 import dji from '../assets/projects/dji.webp'
 import fitcore from '../assets/projects/fitcore.webp'
+import ibdaa from '../assets/projects/ibdaa.webp'
 import gamearena from '../assets/projects/gamearena.webp'
 import kanban from '../assets/projects/kanban.webp'
 import keepsake from '../assets/projects/keepsake.webp'
@@ -46,20 +47,21 @@ export const categories: { id: Category | 'all'; label: string }[] = [
 
 export const featuredProjects: Project[] = [
   {
-    title: 'Lumen',
-    tagline: 'AI SaaS landing page template',
+    title: 'Ibdaa Albashq',
+    tagline: 'Bilingual corporate website',
     description:
-      'A conversion-focused, dark-first landing page for AI products: ten sections, an animated hero that turns scattered data into a decision, and a bento grid with live mini-visuals.',
+      'A multi-page company website for an Iraqi general contractor working in power transmission, solar, oil & gas and telecom. Every page exists in English and Arabic, with project pages, galleries and a validated contact form.',
     highlights: [
-      'Animated product mock that types a question, grows a chart and reveals an AI answer',
-      'Dark & light mode that remembers the visitor and follows their system on a first visit',
-      'All copy in one config file, so rebranding needs no component edits',
+      'Full English and Arabic (RTL) versions, with a switch that opens the same page in the other language',
+      'Project pages, filters and sitemap entries are generated from typed content files',
+      'A test fails if the Arabic content falls out of sync with the English',
     ],
-    tech: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'Vite'],
+    tech: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'React Router', 'TanStack Query', 'Motion', 'Vitest'],
     category: 'react',
-    image: lumen,
-    live: 'https://project-ai-saa-s-landing-page-templ.vercel.app',
-    repo: gh('Project-AI-SaaS-Landing-Page-Template'),
+    image: ibdaa,
+    live: 'https://ibdaa-albashk.vercel.app/',
+    repo: gh('ibdaa-albashk'),
+    rtl: true,
   },
   {
     title: 'TechMart',
@@ -74,7 +76,24 @@ export const featuredProjects: Project[] = [
     tech: ['Next.js 16', 'TypeScript', 'NextAuth', 'Tailwind CSS v4', 'shadcn/ui', 'Zod', 'Framer Motion'],
     category: 'react',
     image: techmart,
+    live: 'https://project17-tech-mart-qf9g.vercel.app',
     repo: gh('Project17-TechMart'),
+  },
+  {
+    title: 'Lumen',
+    tagline: 'AI SaaS landing page template',
+    description:
+      'A conversion-focused, dark-first landing page for AI products: ten sections, an animated hero that turns scattered data into a decision, and a bento grid with live mini-visuals.',
+    highlights: [
+      'Animated product mock that types a question, grows a chart and reveals an AI answer',
+      'Dark & light mode that remembers the visitor and follows their system on a first visit',
+      'All copy in one config file, so rebranding needs no component edits',
+    ],
+    tech: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'Vite'],
+    category: 'react',
+    image: lumen,
+    live: 'https://project-ai-saa-s-landing-page-templ.vercel.app',
+    repo: gh('Project-AI-SaaS-Landing-Page-Template'),
   },
   {
     title: 'The Keepsake Club',
@@ -124,23 +143,6 @@ export const featuredProjects: Project[] = [
     live: 'https://project12-nutri-plan.vercel.app/',
     repo: gh('Project12-NutriPlan'),
   },
-  {
-    title: 'Adasa · عدسة',
-    tagline: 'Arabic photography blog',
-    description:
-      'A right-to-left Arabic blog for photographers, with a home page, post listings, article pages with a sidebar, author profiles and an about page.',
-    highlights: [
-      'Fully RTL layout and typography',
-      'Multi-page routing with shared layouts',
-      'Content driven from a JSON posts file',
-    ],
-    tech: ['React', 'React Router', 'Tailwind CSS v4', 'Lucide'],
-    category: 'react',
-    image: adasa,
-    live: 'https://project15-adasa.vercel.app',
-    repo: gh('Project15-Adasa'),
-    rtl: true,
-  },
 ]
 
 export interface Workflow {
@@ -176,6 +178,23 @@ export const workflows: Workflow[] = [
 ]
 
 export const moreProjects: Project[] = [
+  {
+    title: 'Adasa · عدسة',
+    tagline: 'Arabic photography blog',
+    description:
+      'A right-to-left Arabic blog for photographers, with a home page, post listings, article pages with a sidebar, author profiles and an about page.',
+    highlights: [
+      'Fully RTL layout and typography',
+      'Multi-page routing with shared layouts',
+      'Content driven from a JSON posts file',
+    ],
+    tech: ['React', 'React Router', 'Tailwind CSS v4', 'Lucide'],
+    category: 'react',
+    image: adasa,
+    live: 'https://project15-adasa.vercel.app',
+    repo: gh('Project15-Adasa'),
+    rtl: true,
+  },
   {
     title: 'COSMOS',
     tagline: 'Real-time space dashboard',
@@ -331,6 +350,7 @@ export const moreProjects: Project[] = [
 
 // Every project for the archive grid, newest first. Featured projects are included too.
 const archiveOrder = [
+  'Ibdaa Albashq',
   'TechMart',
   'The Keepsake Club',
   'Lumen',
